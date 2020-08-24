@@ -1,0 +1,224 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.6.5
+Date: 2020-04-10
+  Bugfix:
+    - Fixed a crash when starting in sandbox mode
+---------------------------------------------------------------------------------------------------
+Version: 1.6.4
+Date: 2020-03-29
+  Changes:
+    - Added option for gun turrets, ammo, walls and gates
+---------------------------------------------------------------------------------------------------
+Version: 1.6.3
+Date: 2020-03-15
+  Mod support:
+    - Market by OwnlyMe
+    - Oxygen 2.0 by Natha, amylizzle and Va7ya
+---------------------------------------------------------------------------------------------------
+Version: 1.6.2
+Date: 2020-02-04
+  Changes:
+    - Moved settings from starup to map
+---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 2020-01-30
+  Changes:
+    - Due to legacy support for 0.17 a change of versionnumbers is needed.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.2
+Date: 2020-01-21
+  Base game support:
+    - Support for Factorio 0.18
+  Mod support:
+    - Added support for miniloaders
+  Changes:
+    - Cleaned up some codes and settings
+    - Added option for clearing inventory before adding items
+  Bugfix:
+    - It's now possible to set 0 for crushers when using angel's refining
+    - Fixed crash when having None set as preferred loader
+---------------------------------------------------------------------------------------------------
+Version: 1.5.1
+Date: 2020-01-11
+  Bugfix:
+    - Fixed crash when loading without Mining Drones activated.
+---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 2020-01-01
+  Mod support:
+    - Added support for Mining Drones.
+  Changes:
+    - Added missing text in settings.
+  Features:
+    - Added option for cliff explosives.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.9
+Date: 2019-06-25
+  Changes:
+    - Minor changes in the integration with the Bots and Equipment sister mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.8
+Date: 2019-05-25
+  Bugfix:
+    - Fixed loading error when mod tried to remove a non existing entity.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.7
+Date: 2019-05-23
+  Changes:
+    - Changed optional dependency for Deadlock's loaders, since they're being replaced
+---------------------------------------------------------------------------------------------------
+Version: 1.4.6
+Date: 2019-05-22
+  Changes:
+    - Removed basic heat pipes, since they aren't a must have. 
+---------------------------------------------------------------------------------------------------
+Version: 1.4.5
+Date: 2019-05-22
+  Bugfixes:
+    - Player is now provided correct labs and assemblers when using AAI industry
+---------------------------------------------------------------------------------------------------
+Version: 1.4.4
+Date: 2019-05-22
+  Bugfixes:
+    - Fixed error when loading together with bobslogistics
+---------------------------------------------------------------------------------------------------
+Version: 1.4.3
+Date: 2019-05-18
+  Bugfixes:
+    - Fixed error when mod was checking for the presence of bobslogistics
+---------------------------------------------------------------------------------------------------
+Version: 1.4.2
+Date: 2019-05-17
+  Bugfixes:
+    - Yet another typo, which resulted in lack of electric mining drills.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.1
+Date: 2019-05-17
+  Changes:
+    - Reworked the settings, in an effort to make it more comprehensible.
+  Bugfixes:
+    - Some code were in conflict with Universal Quickstart Bots and Equipment.
+---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 2019-05-16
+  Features:
+    - Lifted out the robots and personal equipment to a standalone mod.
+  Mod support:
+    - Vanilla Loaders HD
+  Changes:
+    - Renamned mod to Universal Quickstart Belts and Machines
+---------------------------------------------------------------------------------------------------
+Version: 1.3.7
+Date: 2019-05-14
+  Features:
+    - Added support for bob's, py's and yuoki's robots.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.6
+Date: 2019-05-14
+  Bugfixes:
+    - Fixed minor error, a typo, which meant that the player didn't receive any belts.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.5
+Date: 2019-05-12
+  Feature:
+    - Added options to get logistic robots, construction robots and roboport
+  Bugfixes:
+    - Fixed minor error, where the conditions were a bit flawed
+---------------------------------------------------------------------------------------------------
+Version: 1.3.4
+Date: 2019-05-10
+  Feature:
+    - Added setting to give the player the possibility to receive the equipment in backpack
+      instead, so they can combine them however they wish in their armor grid.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.3
+Date: 2019-05-10
+  Changes:
+    - Reworked the code for adding equipment to grid to increase the possible combinations.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.2
+Date: 2019-05-10
+  Bugfix:
+    - There were some flaws in my code, which didn't give the player some equipment.
+      Should work better now.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2019-05-10
+  Changes:
+    - Reworked the code for adding equipment to armor. Should give all vanilla items.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2019-05-09
+  Features:
+    - Added options for customizable armor and personal equipment. Work in progress.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.6
+Date: 2019-05-05
+  Bugfix:
+    - Added code which were lost at an earlier update, which makes sure that the player is given
+      an omniphlog whenever omnimatter is present together with a power source that needs water.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2019-04-28
+  Bugfix:
+    - Fixed bug that gave the player AAII burner assemblers and labs whenever AAII was present.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 2019-04-20
+  Feature:
+    - Added choice between burner and electric crushers for Angel's Refining.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 2019-04-17
+  Bugfix:
+    - Mod dependent burning mining drills for Amator.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2019-04-17
+  Changes:
+    - Optimization for AAII and Amator Phasma's Coal & Steam.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2019-04-16
+  Mod Support:
+    - Amator Phasma's Coal & Steam, not fully tested with other mods, expect conflicts with AAII.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2019-04-16
+  Mod Support:
+    - Thermal Solar Power
+  Features:
+    - Solar power is added as new power option
+    - Instead of specifying number of machines the player now specifies desired
+      power production in MW.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 2019-04-15
+  Bugfixes:
+    - Set conditional for supplying gas vent so to not force use of Pyanodons Industry.
+    - Giving extra tailing pond when pyCoal is present but not pyIndustry.
+  Mod Support:
+    - Deadlock Loaders
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2019-04-15
+  Mod support:
+    - Pyanodons Coal Processing & Raw Ores, balanced to get 0.5 red science up and running.
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2019-04-14
+  Bugfixes:
+    - Value of zero doesn't stop game from loading anymore.
+    - Omniphlog is now given, if Omnimatter is present, when having AAI Industry
+      as power-type whilst not having AAI present.
+    - Typos
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2019-04-14
+  Features:
+    - Added settings for all supplied items.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2019-04-14
+  Update:
+    - The first release.

@@ -1,0 +1,29 @@
+{
+ "name": "nihilist_quickstart", 
+ "version": "1.0.0", 
+ "factorio_version": "1.0",
+ "title": "Nihilist Quickstart Belts and Machines",
+ "author": "nihilisticpandemonium", 
+ "contact": "nihilisticpandemonium@gmail.com", 
+ "homepage": "", 
+ "description": "This is a quick patch to Caxx's Universal Quickstart Belts & Machines for 1.0.\r\n\r\n",
+ "dependencies": [
+	"base >= 1.0",
+	"? aai-industry",
+	"? apm_power",
+	"? angelsrefining",
+	"? boblogistics",
+	"? deadlock-integrations",
+	"? omnimatter",
+	"? pycoalprocessing",
+	"? pyindustry",
+	"? pyrawores",
+	"? CW-thermal-solar-power",
+	"? vanilla-loaders-hd",
+	"? Electric Furnaces",
+	"? Mining_Drones",
+	"? Market2",
+	"? Oxygen2_0",
+    "!universal_quickstart"
+	]
+}

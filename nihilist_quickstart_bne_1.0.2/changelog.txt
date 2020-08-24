@@ -1,0 +1,96 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.3.3
+Date: 2020-03-15
+  Mod support:
+    - Oxygen 2.0 by Natha, amylizzle and Va7ya
+---------------------------------------------------------------------------------------------------
+Version: 1.3.2
+Date: 2020-02-21
+  Bufix:
+    - Should not be crashing when starting a new Sandbox-mode game.
+---------------------------------------------------------------------------------------------------
+Version: 1.3.1
+Date: 2020-02-04
+  Changes:
+    - Moved settings from startup to map
+---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2020-01-30
+  Changes:
+    - Due to legacy support for 0.17 a change of versionnumbers is needed.
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 2020-01-30
+  Bugfix:
+    - Fix crash when selecting "None" as type for some equipments
+---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2020-01-27
+  Bugfix:
+    - Custom entities is now working again
+---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2020-01-21
+  Base game support:
+    - Support for Factorio 0.18
+  Bugfix:
+    - Construction robots are now also given when equipment is placed in backpack.
+    - It is now possible to clear the settings for custom items
+  Features:
+    - Adding more options for modded equipment, atm more tiers from Bob's 
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2020-01-01
+  Features:
+    - Added options for guns and ammo, so far only vanilla
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2019-06-26
+  Bugfix:
+    - Fixed typo which hindered the roboports and robots from spawning
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2019-06-25
+  Mod support:
+    - Added support for Portable Power, by request, Bob's Warfare and Pyanodons Hightech
+  Features:
+    - Added options to start with robotports, robots and armor from all supported mods
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2019-05-21
+  Features:
+    - Added text field for custom items in settings
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 2019-05-21
+  Bugfix:
+    - Minor bug where 0 roboports couldn't be set in settings.
+  Changes:
+    - Added possibilty in settings to start without roboports but with robots and chests
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2019-05-17
+  Bugfix:
+    - Start with no armor works again.
+    - Player is now given correct amount of construction bots
+    - Player is also given correct amount of bots when using Bob's equipment
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2019-05-16
+  Bugfix:
+    - Condition error for providing roboports
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2019-05-16
+  Bugfix:
+    - Compatibility errors with Universal Quickstart Belts and Machines
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2019-05-16
+  Bugfix:
+    - Minor type lead to crash at loading map
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2019-05-16
+  Update:
+    - The first release.
