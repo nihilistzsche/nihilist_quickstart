@@ -281,6 +281,13 @@ if mods["deadlock-integrations"] then
 table.insert(loaders, "Deadlock's Loaders")
 
 data:extend({
+    {
+        type = "bool-setting",
+        name = "uqs-use-basic-loaders",
+        setting_type = "runtime-global",
+        default_value = true,
+        order = "abeb",
+    },
 	{
 		type = "string-setting",
 		name = "uqs-loader-type",
@@ -296,7 +303,7 @@ data:extend({
 		default_value = 50,
 		maximum_value = 250,
 		minimum_value = 0,
-		order = "abeb"
+		order = "abec"
 	}
 })
 end
@@ -306,6 +313,13 @@ if mods["vanilla-loaders-hd"] then
 table.insert(loaders, "Vanilla Loaders HD")
 
 data:extend({
+    {
+        type = "bool-setting",
+        name = "uqs-use-basic-loaders",
+        setting_type = "runtime-global",
+        default_value = true,
+        order = "abeb",
+    },
 	{
 		type = "string-setting",
 		name = "uqs-loader-type",
@@ -321,7 +335,7 @@ data:extend({
 		default_value = 50,
 		maximum_value = 250,
 		minimum_value = 0,
-		order = "abeb"
+		order = "abec"
 	}
 })
 end
@@ -331,6 +345,13 @@ if mods["miniloader"] then
 table.insert(loaders, "Miniloaders")
 
 data:extend({
+    {
+        type = "bool-setting",
+        name = "uqs-use-basic-loaders",
+        setting_type = "runtime-global",
+        default_value = true,
+        order = "abeb",
+    },
 	{
 		type = "string-setting",
 		name = "uqs-loader-type",
@@ -346,7 +367,7 @@ data:extend({
 		default_value = 50,
 		maximum_value = 250,
 		minimum_value = 0,
-		order = "abeb"
+		order = "abec"
 	}
 })
 end
@@ -370,7 +391,7 @@ data:extend({
 		name = "uqs-number-of-mining-drones",
 		setting_type = "runtime-global",
 		default_value = 100,
-		maximum_value = 1000,
+		maximum_value = 2000,
 		minimum_value = 0,
 		order = "adac"
 	}
@@ -480,6 +501,13 @@ end
 
 if mods["omnimatter"] then
 data:extend({
+    {
+        type = "bool-setting",
+        name = "uqs-provide-electric-omnitractors",
+        setting_type = "runtime-global",
+        default_value = false,
+        order = "agca",
+    },
 	{
 		type = "int-setting",
 		name = "uqs-number-of-omnitractors",

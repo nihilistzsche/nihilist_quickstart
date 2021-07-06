@@ -122,21 +122,21 @@ script.on_init(function()
 	if miniloaders or vanillaloadershd or deadlockloaders then
 		if settings.global["uqs-loader-type"].value == "Deadlock's Loaders" then
 			loadernumber = settings.global["uqs-number-of-loaders"].value
-			if bobbasicbelts then
+			if bobbasicbelts and settings.global["uqs-use-basic-loaders"].value then
 				loadertype = "basic-transport-belt-loader"
 			else
 				loadertype = "transport-belt-loader"
 			end
 		elseif settings.global["uqs-loader-type"].value == "Vanilla Loaders HD" then
 			loadernumber = settings.global["uqs-number-of-loaders"].value
-			if bobbasicbelts then
+			if bobbasicbelts and settings.global["uqs-use-basic-loaders"].value then
 				loadertype = "basic-loader"
 			else
 				loadertype = "loader"
 			end
 		elseif settings.global["uqs-loader-type"].value == "Miniloaders" then
 			loadernumber = settings.global["uqs-number-of-loaders"].value
-			if bobbasicbelts then
+			if bobbasicbelts and settings.global["uqs-use-basic-loaders"].value  then
 				loadertype = "miniloader"
 			else
 				loadertype = "loader"
@@ -217,11 +217,16 @@ script.on_init(function()
 -- Check settings for omnitractors
 	if Omnimatter then
 		omnitractornumber = settings.global["uqs-number-of-omnitractors"].value
-		omnitractortype = "burner-omnitractor"
+        if settings.global["uqs-provide-electric-omnitractors"].value then
+            omnitractortype = "omnitractor-1"
+        else
+		    omnitractortype = "burner-omnitractor"
+        end
 	end
 
 -- Check settings for furnaces
 	furnacenumber = settings.global["uqs-number-of-furnaces"].value
+
 	if electricfurnaces and settings.global["uqs-electric-furnaces"].value then
 		furnacetype = "electric-stone-furnace"
 	else
@@ -588,7 +593,7 @@ end
 
 -- Insert in inventory function
 function inventory(pname, pamount)
-	created_items[pname]=pamount
+	created_items[pname]=(created_items[pname] or 0) + pamount
 end
 -- Give armor and equipment
 	if uqsbne then
