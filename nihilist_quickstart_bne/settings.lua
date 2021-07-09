@@ -124,315 +124,321 @@ end
 
 -- Oxygen 2.0
 if mods["Oxygen2_0"] then
-data:extend({
-	{
-		type = "bool-setting",
-		name = "uqs-oxygen-gas-mask",
-		setting_type = "runtime-global",
-		default_value = true,
-		order = "aja"
-	}
-})
+	data:extend(
+		{
+			{
+				type = "bool-setting",
+				name = "uqs-oxygen-gas-mask",
+				setting_type = "runtime-global",
+				default_value = true,
+				order = "aja"
+			}
+		}
+	)
 end
 
 -- Create settings
 -- Mod-dependent
 if mods["Portable_power"] then
-data:extend({
-	{
-		type = "int-setting",
-		name = "uqs-number-of-uranium-fuel",
-		setting_type = "runtime-global",
-		default_value = 50,
-		maximum_value = 250,
-		minimum_value = 1,
-		order = "aibb"
-	}
-})
+	data:extend(
+		{
+			{
+				type = "int-setting",
+				name = "uqs-number-of-uranium-fuel",
+				setting_type = "runtime-global",
+				default_value = 50,
+				maximum_value = 250,
+				minimum_value = 1,
+				order = "aibb"
+			}
+		}
+	)
 end
 
 -- General settings
-data:extend({
+data:extend(
 	{
-		type = "string-setting",
-		name = "uqs-robots-mod",
-		setting_type = "runtime-global",
-		default_value = "Vanilla",
-		allowed_values = robotsmodallowed,
-		order = "aadb"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-type-of-roboports",
-		setting_type = "runtime-global",
-		default_value = "Vanilla",
-		allowed_values = roboportsallowed,
-		order = "aaaa"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-roboports",
-		setting_type = "runtime-global",
-		default_value = 10,
-		maximum_value = 50,
-		minimum_value = 0,
-		order = "aada"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-provide-robots-alone",
-		setting_type = "runtime-global",
-		default_value = false,
-		order = "aadb"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-logistic-robots",
-		setting_type = "runtime-global",
-		default_value = 250,
-		maximum_value = 1000,
-		minimum_value = 0,
-		order = "aaeb"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-construction-robots",
-		setting_type = "runtime-global",
-		default_value = 100,
-		maximum_value = 250,
-		minimum_value = 0,
-		order = "aafa"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-provide-chests-alone",
-		setting_type = "runtime-global",
-		default_value = false,
-		order = "aafb"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-provide-active-providers",
-		setting_type = "runtime-global",
-		default_value = true,
-		order = "aaga"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-provider-chests",
-		setting_type = "runtime-global",
-		default_value = 50,
-		maximum_value = 100,
-		minimum_value = 0,
-		order = "aagb"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-provide-buffers",
-		setting_type = "runtime-global",
-		default_value = true,
-		order = "aahb"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-requester-chests",
-		setting_type = "runtime-global",
-		default_value = 50,
-		maximum_value = 100,
-		minimum_value = 0,
-		order = "aaha"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-storage-chests",
-		setting_type = "runtime-global",
-		default_value = 50,
-		maximum_value = 100,
-		minimum_value = 0,
-		order = "aai"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-armor",
-		setting_type = "runtime-global",
-		default_value = "None",
-		allowed_values = armorallowed,
-		order = "aiaa"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-equipment-in-backpack",
-		setting_type = "runtime-global",
-		default_value = false,
-		order = "aiab"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-equipment-power",
-		setting_type = "runtime-global",
-		default_value = "Solar panels",
-		allowed_values = powerallowed,
-		order = "aiba"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-panels-reactors",
-		setting_type = "runtime-global",
-		default_value = 1,
-		maximum_value = 50,
-		minimum_value = 0,
-		order = "aibc"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-equipment-battery",
-		setting_type = "runtime-global",
-		default_value = "Battery",
-		allowed_values = batteriesallowed,
-		order = "aica"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-batteries",
-		setting_type = "runtime-global",
-		default_value = 1,
-		maximum_value = 10,
-		minimum_value = 0,
-		order = "aicb"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-equipment-night-vision",
-		setting_type = "runtime-global",
-		default_value = false,
-		order = "aid"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-equipment-personal-roboport",
-		setting_type = "runtime-global",
-		default_value = "Roboport",
-		allowed_values = {"Roboport", "Roboport MK2"},
-		order = "aiea"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-personal-roboports",
-		setting_type = "runtime-global",
-		default_value = 2,
-		maximum_value = 10,
-		minimum_value = 0,
-		order = "aieb"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-supply-robots",
-		setting_type = "runtime-global",
-		default_value = true,
-		order = "aiec"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-equipment-exoskeletons",
-		setting_type = "runtime-global",
-		default_value = "Exoskeleton",
-		allowed_values = exoskeletonsallowed,
-		order = "aifa"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-exoskeletons",
-		setting_type = "runtime-global",
-		default_value = 0,
-		maximum_value = 10,
-		minimum_value = 0,
-		order = "aifb"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-equipment-energy-shield",
-		setting_type = "runtime-global",
-		default_value = "Energy Shield",
-		allowed_values = shieldsallowed,
-		order = "aiga"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-energy-shields",
-		setting_type = "runtime-global",
-		default_value = 0,
-		maximum_value = 10,
-		minimum_value = 0,
-		order = "aigb"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-equipment-belt-immunity",
-		setting_type = "runtime-global",
-		default_value = false,
-		order = "aih"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-equipment-discharge-defense",
-		setting_type = "runtime-global",
-		default_value = false,
-		order = "aii"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-personal-laser-defense",
-		setting_type = "runtime-global",
-		default_value = 0,
-		maximum_value = 10,
-		minimum_value = 0,
-		order = "aij"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-equipment-solar-fill",
-		setting_type = "runtime-global",
-		default_value = true,
-		order = "aik"
-	},
-	{
-		type = "bool-setting",
-		name = "uqs-equipment-gun-provide",
-		setting_type = "runtime-global",
-		default_value = true,
-		order = "aila"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-equipment-gun",
-		setting_type = "runtime-global",
-		default_value = "Pistol",
-		allowed_values = gunsallowed,
-		order = "ailb"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-equipment-ammo",
-		setting_type = "runtime-global",
-		default_value = "Firearm magazine",
-		allowed_values = ammoallowed,
-		order = "aim"
-	},
-	{
-		type = "int-setting",
-		name = "uqs-number-of-ammo",
-		setting_type = "runtime-global",
-		default_value = 10,
-		maximum_value = 1000,
-		minimum_value = 0,
-		order = "ain"
-	},
-	{
-		type = "string-setting",
-		name = "uqs-custom-entities",
-		setting_type = "runtime-global",
-		default_value = "iron-plate:1 copper-plate:1",
-		allow_blank = true,
-		order = "baa"
+		{
+			type = "string-setting",
+			name = "uqs-robots-mod",
+			setting_type = "runtime-global",
+			default_value = "Vanilla",
+			allowed_values = robotsmodallowed,
+			order = "aadb"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-type-of-roboports",
+			setting_type = "runtime-global",
+			default_value = "Vanilla",
+			allowed_values = roboportsallowed,
+			order = "aaaa"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-roboports",
+			setting_type = "runtime-global",
+			default_value = 10,
+			maximum_value = 50,
+			minimum_value = 0,
+			order = "aada"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-provide-robots-alone",
+			setting_type = "runtime-global",
+			default_value = false,
+			order = "aadb"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-logistic-robots",
+			setting_type = "runtime-global",
+			default_value = 250,
+			maximum_value = 1000,
+			minimum_value = 0,
+			order = "aaeb"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-construction-robots",
+			setting_type = "runtime-global",
+			default_value = 100,
+			maximum_value = 250,
+			minimum_value = 0,
+			order = "aafa"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-provide-chests-alone",
+			setting_type = "runtime-global",
+			default_value = false,
+			order = "aafb"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-provide-active-providers",
+			setting_type = "runtime-global",
+			default_value = true,
+			order = "aaga"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-provider-chests",
+			setting_type = "runtime-global",
+			default_value = 50,
+			maximum_value = 100,
+			minimum_value = 0,
+			order = "aagb"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-provide-buffers",
+			setting_type = "runtime-global",
+			default_value = true,
+			order = "aahb"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-requester-chests",
+			setting_type = "runtime-global",
+			default_value = 50,
+			maximum_value = 100,
+			minimum_value = 0,
+			order = "aaha"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-storage-chests",
+			setting_type = "runtime-global",
+			default_value = 50,
+			maximum_value = 100,
+			minimum_value = 0,
+			order = "aai"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-armor",
+			setting_type = "runtime-global",
+			default_value = "None",
+			allowed_values = armorallowed,
+			order = "aiaa"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-equipment-in-backpack",
+			setting_type = "runtime-global",
+			default_value = false,
+			order = "aiab"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-equipment-power",
+			setting_type = "runtime-global",
+			default_value = "Solar panels",
+			allowed_values = powerallowed,
+			order = "aiba"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-panels-reactors",
+			setting_type = "runtime-global",
+			default_value = 1,
+			maximum_value = 50,
+			minimum_value = 0,
+			order = "aibc"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-equipment-battery",
+			setting_type = "runtime-global",
+			default_value = "Battery",
+			allowed_values = batteriesallowed,
+			order = "aica"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-batteries",
+			setting_type = "runtime-global",
+			default_value = 1,
+			maximum_value = 10,
+			minimum_value = 0,
+			order = "aicb"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-equipment-night-vision",
+			setting_type = "runtime-global",
+			default_value = false,
+			order = "aid"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-equipment-personal-roboport",
+			setting_type = "runtime-global",
+			default_value = "Roboport",
+			allowed_values = {"Roboport", "Roboport MK2"},
+			order = "aiea"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-personal-roboports",
+			setting_type = "runtime-global",
+			default_value = 2,
+			maximum_value = 10,
+			minimum_value = 0,
+			order = "aieb"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-supply-robots",
+			setting_type = "runtime-global",
+			default_value = true,
+			order = "aiec"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-equipment-exoskeletons",
+			setting_type = "runtime-global",
+			default_value = "Exoskeleton",
+			allowed_values = exoskeletonsallowed,
+			order = "aifa"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-exoskeletons",
+			setting_type = "runtime-global",
+			default_value = 0,
+			maximum_value = 10,
+			minimum_value = 0,
+			order = "aifb"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-equipment-energy-shield",
+			setting_type = "runtime-global",
+			default_value = "Energy Shield",
+			allowed_values = shieldsallowed,
+			order = "aiga"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-energy-shields",
+			setting_type = "runtime-global",
+			default_value = 0,
+			maximum_value = 10,
+			minimum_value = 0,
+			order = "aigb"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-equipment-belt-immunity",
+			setting_type = "runtime-global",
+			default_value = false,
+			order = "aih"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-equipment-discharge-defense",
+			setting_type = "runtime-global",
+			default_value = false,
+			order = "aii"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-personal-laser-defense",
+			setting_type = "runtime-global",
+			default_value = 0,
+			maximum_value = 10,
+			minimum_value = 0,
+			order = "aij"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-equipment-solar-fill",
+			setting_type = "runtime-global",
+			default_value = true,
+			order = "aik"
+		},
+		{
+			type = "bool-setting",
+			name = "uqs-equipment-gun-provide",
+			setting_type = "runtime-global",
+			default_value = true,
+			order = "aila"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-equipment-gun",
+			setting_type = "runtime-global",
+			default_value = "Pistol",
+			allowed_values = gunsallowed,
+			order = "ailb"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-equipment-ammo",
+			setting_type = "runtime-global",
+			default_value = "Firearm magazine",
+			allowed_values = ammoallowed,
+			order = "aim"
+		},
+		{
+			type = "int-setting",
+			name = "uqs-number-of-ammo",
+			setting_type = "runtime-global",
+			default_value = 10,
+			maximum_value = 1000,
+			minimum_value = 0,
+			order = "ain"
+		},
+		{
+			type = "string-setting",
+			name = "uqs-custom-entities",
+			setting_type = "runtime-global",
+			default_value = "iron-plate:1 copper-plate:1",
+			allow_blank = true,
+			order = "baa"
+		}
 	}
-})
+)
