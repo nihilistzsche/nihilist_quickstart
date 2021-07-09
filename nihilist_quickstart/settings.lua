@@ -190,7 +190,7 @@ table.insert(ammo, "Piercing rounds")
 		type = "int-setting",
 		name = "uqs-number-of-furnaces",
 		setting_type = "runtime-global",
-		default_value = 50,	
+		default_value = 50,
 		maximum_value = 200,
 		minimum_value = 0,
 		order = "agb"
