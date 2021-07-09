@@ -22,6 +22,7 @@ script.on_init(function()
 	miniloaders = false
 	marketmod = false
 	oxygenmod = false
+    electricboiler = false
 
 -- Check for active game.active_mods
 		if game.active_mods["aai-industry"] then
@@ -75,7 +76,9 @@ script.on_init(function()
 		if game.active_mods["Oxygen2_0"] then
 			oxygenmod = true
 		end
-
+        if game.active_mods["electricboiler"] then
+            electricboiler = true
+        end
 -- Check for clearing main inventory
 	--[[if settings.global["uqs-clear-inventory"].value then
 		if player.character then
@@ -249,6 +252,11 @@ script.on_init(function()
 		oxygenbottlestype = "oxygen-bottle"
 	end
 
+    if electricboiler and settings.global["uqs-provide-electric-boilers"].value then
+        boilertype = "electric-boiler"
+    else
+        boilertype = "boiler"
+    end
 
 -- Give belt and stuff to player
 function getstuff(player)
@@ -357,7 +365,7 @@ function getstuff(player)
 				end
 			else
 				generators = math.floor(settings.global["uqs-desired-power-output"].value/1.8+0.99)
-				inventory("boiler",  generators)
+				inventory(boilertype,  generators)
 				inventory("steam-engine",  generators * 2)
 				inventory("offshore-pump",  math.floor(generators / 20 + 0.99))
 				if settings.global["uqs-electric-inserters"].value then
@@ -371,7 +379,7 @@ function getstuff(player)
 			if AAII then
 				inventory("burner-turbine",  1)
 				generators = math.floor(settings.global["uqs-desired-power-output"].value/1.8+0.99)
-				inventory("boiler",  generators)
+				inventory(boilertype,  generators)
 				inventory("steam-engine",  generators * 2)
 				inventory("offshore-pump",  math.floor(generators / 20 + 0.99))
 				if settings.global["uqs-electric-inserters"].value then
@@ -381,7 +389,7 @@ function getstuff(player)
 				end
 			else
 				generators = math.floor(settings.global["uqs-desired-power-output"].value/1.8+0.99)
-				inventory("boiler",  generators)
+				inventory(boilertype,  generators)
 				inventory("steam-engine",  generators * 2)
 				inventory("offshore-pump",  math.floor(generators / 20 + 0.99))
 				if settings.global["uqs-electric-inserters"].value then
@@ -393,7 +401,7 @@ function getstuff(player)
 		elseif settings.global["uqs-power-type"].value == "Steam Power" then
 			needwater = true
 			generators = math.floor(settings.global["uqs-desired-power-output"].value/1.8+0.99)
-			inventory("boiler",  generators)
+			inventory(boilertype,  generators)
 			inventory("steam-engine",  generators * 2)
 			inventory("offshore-pump",  math.floor(generators / 20 + 0.99))
 			if settings.global["uqs-electric-inserters"].value then

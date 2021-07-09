@@ -478,6 +478,18 @@ data:extend({
 })
 end
 
+if mods["electricboiler"] then
+data:extend({
+    {
+        type = "bool-setting",
+        name = "uqs-provide-electric-boilers",
+        setting_type = "runtime-global",
+        default_value = false,
+        order = "aff"
+    }
+})
+end
+
 if mods["angelsrefining"] then
 data:extend({
 	{
