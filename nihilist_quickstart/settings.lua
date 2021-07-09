@@ -521,6 +521,14 @@ if mods["angelsrefining"] then
 				maximum_value = 50,
 				minimum_value = 0,
 				order = "agbb"
+			},
+			{
+				type = "int-setting",
+				name = "uqs-number-of-sorters",
+				setting_type = "runtime-global",
+				default_value = 10,
+				maximum_value = 50,
+				order = "agbc"
 			}
 		}
 	)
