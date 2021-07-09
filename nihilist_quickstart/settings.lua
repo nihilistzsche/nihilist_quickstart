@@ -63,7 +63,7 @@ table.insert(ammo, "Piercing rounds")
 		name = "uqs-number-of-belts",
 		setting_type = "runtime-global",
 		default_value = 1000,
-		maximum_value = 2000,
+		maximum_value = 5000,
 		minimum_value = 0,
 		order = "abb"
 	},
@@ -72,7 +72,7 @@ table.insert(ammo, "Piercing rounds")
 		name = "uqs-number-of-undergrounds",
 		setting_type = "runtime-global",
 		default_value = 50,
-		maximum_value = 250,
+		maximum_value = 1000,
 		minimum_value = 0,
 		order = "abc"
 	},
@@ -81,7 +81,7 @@ table.insert(ammo, "Piercing rounds")
 		name = "uqs-number-of-splitters",
 		setting_type = "runtime-global",
 		default_value = 50,
-		maximum_value = 250,
+		maximum_value = 1000,
 		minimum_value = 0,
 		order = "abd"
 	},
