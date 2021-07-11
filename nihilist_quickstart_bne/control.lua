@@ -580,7 +580,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 						end
 					end
 					roboportsinserted = roboportsoriginal - roboports
-					if settings.global["uqs-supply-robots"].value then
+					if settings.global["uqs-supply-robots"].value and roboportsinserted > 0 then
 						player.insert {name = conbots, count = roboportsinserted * robotmult}
 					end
 				end
