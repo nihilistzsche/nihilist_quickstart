@@ -310,6 +310,22 @@ if mods["deadlock-integrations"] then
 	)
 end
 
+if mods["deadlock-beltboxes-loaders"] then
+	data:extend(
+		{
+			{
+				type = "int-setting",
+				name = "uqs-number-of-beltboxes",
+				setting_type = "runtime-global",
+				default_value = 50,
+				maximum_value = 250,
+				minimum_value = 0,
+				order = "abed"
+			}
+		}
+	)
+end
+
 if mods["vanilla-loaders-hd"] then
 	table.insert(loaders, "Vanilla Loaders HD")
 

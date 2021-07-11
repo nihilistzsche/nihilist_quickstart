@@ -10,6 +10,7 @@ script.on_init(
 		pyOres = false
 		pyIndustry = false
 		deadlockloaders = false
+		deadlockbeltboxes = false
 		thermalsolar = false
 		amatorcoal = false
 		generators = 0
@@ -80,14 +81,9 @@ script.on_init(
 		if game.active_mods["electricboiler"] then
 			electricboiler = true
 		end
-		-- Check for clearing main inventory
-		--[[if settings.global["uqs-clear-inventory"].value then
-		if player.character then
-			player.get_inventory(defines.inventory.character_main).clear()
-		else
-			player.get_inventory(defines.inventory.god_main).clear()
+		if game.active_mods["deadlock-beltboxes-loaders"] then
+			deadlockbeltboxes = true
 		end
-	end]]
 		-- Check for boblogistics and beltoverhaul
 		if Boblogistics and settings.startup["bobmods-logistics-beltoverhaul"].value then
 			bobbasicbelts = true
@@ -149,6 +145,16 @@ script.on_init(
 			end
 		end
 
+		if deadlockbeltboxes then
+			if settings.global["uqs-number-of-beltboxes"].value > 0 then
+				beltboxnumber = settings.global["uqs-number-of-beltboxes"].value
+				if bobbasicbelts and settings.global["uqs-use-basic-loaders"].value then
+					beltboxtype = "basic-transport-belt-beltbox"
+				else
+					beltboxtype = "transport-belt-beltbox"
+				end
+			end
+		end
 		-- Check settings for pipes
 		if Boblogistics and settings.global["uqs-bob-pipes"].value then
 			pipetype = "stone-pipe"
@@ -282,6 +288,11 @@ script.on_init(
 			-- Inserting loaders
 			if loadernumber > 0 then
 				inventory(loadertype, loadernumber)
+			end
+
+			-- Inserting beltboxes
+			if beltboxnumber > 0 then
+				inventory(beltboxtype, beltboxnumber)
 			end
 
 			-- Inserting pipes
