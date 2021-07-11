@@ -1,22 +1,22 @@
 {
- "name": "nihilist_quickstart_bne", 
- "version": "1.0.3", 
- "factorio_version": "1.1",
- "title": "Nihilist Quickstart Bots and Equipment",
- "author": "nihilisticpandemonium", 
- "contact": "nihilisticpandemonium@gmail.com", 
- "homepage": "", 
- "description": "This is an addon mod for Nihilist Quickstart Mod where the players is given the possibility to start with logistics bots, and also armour and personal equipment.  This is a quick 1.0 port of Caxx's Universal Quickstart Bots and Equipment.\r\n\r\n", 
- "dependencies": [
-	"base >= 1.0",
-	"? nihilist_quickstart >= 1.0.0",
-	"? boblogistics",
-	"? bobwarfare",
-	"? pyhightech",
-	"? pyindustry",
-	"? Yuoki",
-	"? Portable_power",
-	"? Oxygen2_0",
-    "!universal_quickstart_bne"
+	"name": "nihilist_quickstart_bne",
+	"version": "1.0.3",
+	"factorio_version": "1.1",
+	"title": "Nihilist Quickstart Bots and Equipment",
+	"author": "nihilisticpandemonium",
+	"contact": "nihilisticpandemonium@gmail.com",
+	"homepage": "",
+	"description": "This is an addon mod for Nihilist Quickstart Mod where the players is given the possibility to start with logistics bots, and also armour and personal equipment.  This is a quick 1.0 port of Caxx's Universal Quickstart Bots and Equipment.\r\n\r\n",
+	"dependencies": [
+		"base >= 1.0",
+		"? nihilist_quickstart >= 1.0.0",
+		"? boblogistics",
+		"? bobwarfare",
+		"? pyhightech",
+		"? pyindustry",
+		"? Yuoki",
+		"? Portable_power",
+		"? Oxygen2_0",
+		"!universal_quickstart_bne"
 	]
 }
