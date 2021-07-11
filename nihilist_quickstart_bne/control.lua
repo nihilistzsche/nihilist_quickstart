@@ -17,7 +17,6 @@ script.on_init(
 		logisticbelts = false
 		logisticrobots = false
 		yuoki = false
-		uqs = false
 		oxygenmod = false
 
 		-- Check for active mods
@@ -54,9 +53,6 @@ script.on_init(
 			end
 			if name == "Yuoki" then
 				yuoki = true
-			end
-			if name == "universal_quickstart" then
-				uqs = true
 			end
 			if name == "Portable_power" then
 				Portablepower = true
@@ -690,24 +686,21 @@ script.on_init(
 			end
 		end
 		-- Give armor and equipment
-		if not uqs then
-			-- Define vector containing armor prototype internal names
-			armorname = {
-				"modular-armor",
-				"power-armor",
-				"power-armor-mk2",
-				"bob-power-armor-mk3",
-				"bob-power-armor-mk4",
-				"bob-power-armor-mk5",
-				"yi_armor_gray",
-				"yi_armor_red",
-				"yi_armor_gold",
-				"yi_walker_a",
-				"yi_walker_c"
-			}
-			if not noarmor then
-				inventory(armorname[armortype], 1)
-			end
+		armorname = {
+			"modular-armor",
+			"power-armor",
+			"power-armor-mk2",
+			"bob-power-armor-mk3",
+			"bob-power-armor-mk4",
+			"bob-power-armor-mk5",
+			"yi_armor_gray",
+			"yi_armor_red",
+			"yi_armor_gold",
+			"yi_walker_a",
+			"yi_walker_c"
+		}
+		if not noarmor then
+			player.insert{name = armorname[armortype], count = 1}
 		end
 		getarmor()
 		getguns()

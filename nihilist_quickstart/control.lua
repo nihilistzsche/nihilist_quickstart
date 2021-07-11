@@ -18,7 +18,6 @@ script.on_init(
 		logisticbelts = false
 		logisticrobots = false
 		yuoki = false
-		uqsbne = false
 		vanillaloadershd = false
 		miningdrones = false
 		miniloaders = false
@@ -59,9 +58,6 @@ script.on_init(
 		end
 		if game.active_mods["Yuoki"] then
 			yuoki = true
-		end
-		if game.active_mods["universal_quickstart_bne"] then
-			uqsbne = true
 		end
 		if game.active_mods["vanilla-loaders-hd"] then
 			vanillaloadershd = true
@@ -545,83 +541,9 @@ script.on_init(
 		end
 
 		-- Armor generation
-		function getarmor(player)
-			-- Define vector containing armor prototype internal names
-			armorname = {
-				"modular-armor",
-				"power-armor",
-				"power-armor-mk2",
-				"bob-power-armor-mk3",
-				"bob-power-armor-mk4",
-				"bob-power-armor-mk5",
-				"yi_armor_gray",
-				"yi_armor_red",
-				"yi_armor_gold",
-				"yi_walker_a",
-				"yi_walker_c"
-			}
-
-			-- Define variables
-			robotmult = 0
-			robots = 0
-			powertype = 1
-			batterytype = 1
-			roboporttype = 1
-			energyshieldtype = 1
-			noarmor = false
-			beltimmunityplaced = false
-			nightvisionplaced = false
-			inbackpack = false
-
-			-- Checking for armor type
-			if settings.global["uqs-armor"].value == "Modular Armor" then
-				armortype = 1
-			elseif settings.global["uqs-armor"].value == "Power Armor" then
-				armortype = 2
-			elseif settings.global["uqs-armor"].value == "Power Armor MK2" then
-				armortype = 3
-			elseif settings.global["uqs-armor"].value == "Power Armor MK3" then
-				armortype = 4
-			elseif settings.global["uqs-armor"].value == "Power Armor MK4" then
-				armortype = 5
-			elseif settings.global["uqs-armor"].value == "Power Armor MK5" then
-				armortype = 6
-			elseif settings.global["uqs-armor"].value == "Standard YI Suite" then
-				armortype = 7
-			elseif settings.global["uqs-armor"].value == "Master Technic Suite" then
-				armortype = 8
-			elseif settings.global["uqs-armor"].value == "Master YI Suite" then
-				armortype = 9
-			elseif settings.global["uqs-armor"].value == "Walker - T.R." then
-				armortype = 10
-			elseif settings.global["uqs-armor"].value == "I Am the Walking Death" then
-				armortype = 11
-			elseif settings.global["uqs-armor"].value == "None" then
-				noarmor = true
-			else
-				noarmor = true
-			end
-
-			-- Give armor
-			if not noarmor then
-				created_items[armorname[armortype]] = 1
-			end
-		end
-
-		-- Insert in grid function
-		function gridput(eqname, gridcol, gridrow)
-			grid.put({name = eqname, position = {gridcol, gridrow}})
-		end
-
-		-- Insert in inventory function
 		function inventory(pname, pamount)
 			created_items[pname] = (created_items[pname] or 0) + pamount
 		end
-		-- Give armor and equipment
-		if uqsbne then
-			getarmor(created_items)
-		end
-
 		-- Give belt and stuff to player
 		getstuff(created_items)
 
