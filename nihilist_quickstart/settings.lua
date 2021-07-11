@@ -159,7 +159,7 @@ data:extend(
 			name = "uqs-desired-power-output",
 			setting_type = "runtime-global",
 			default_value = 7.2,
-			maximum_value = 36,
+			maximum_value = 144,
 			minimum_value = 0,
 			order = "afb"
 		},
