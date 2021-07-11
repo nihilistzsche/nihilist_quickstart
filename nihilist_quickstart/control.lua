@@ -1,6 +1,9 @@
-script.on_init(
-	function()
-		local created_items = remote.call("freeplay", "get_created_items")
+script.on_event(defines.events.on_cutscene_cancelled,
+	function(e)
+		if NQS_Init and NQS_Init[e.player_index] then
+			return
+		end
+		local player = game.players[e.player_index]
 		-- Variables
 		AAII = false
 		Angelsrefining = false
@@ -542,11 +545,12 @@ script.on_init(
 
 		-- Armor generation
 		function inventory(pname, pamount)
-			created_items[pname] = (created_items[pname] or 0) + pamount
+			player.insert{name = pname, count =  pamount}
 		end
 		-- Give belt and stuff to player
 		getstuff(created_items)
 
-		remote.call("freeplay", "set_created_items", created_items)
+		NQS_Init = NQS_Init or {}
+		NQS_Init[e.player_index] = true
 	end
 )

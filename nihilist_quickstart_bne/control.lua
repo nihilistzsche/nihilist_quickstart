@@ -1,11 +1,10 @@
 script.on_event(defines.events.on_cutscene_cancelled,
 	function(e)
-		if NQS_BNE_Init then
+		if NQS_BNE_Init and NQS_BNE_Init[e.player_index] then
 			return
 		end
 		local player = game.players[e.player_index]
 		-- Variables
-		local created_items = remote.call("freeplay", "get_created_items")
 		AAII = false
 		Angelsrefining = false
 		Omnimatter = false
@@ -68,7 +67,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 
 		-- Insert in inventory function
 		function inventory(pname, pamount)
-			created_items[pname] = (created_items[pname] or 0) + pamount
+			player.insert{name = pname, count = pamount}
 		end
 
 		-- Checking list for custom entities
@@ -739,17 +738,12 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			player.insert{name = armorname[armortype], count = 1}
 		end
 
-		-- Insert in inventory function
-		function inventory(pname, pamount)
-			created_items[pname]=(created_items[pname] or 0) + pamount
-		end
-
 		getarmor()
 		getguns()
 
 		getstuff()
 
-		remote.call("freeplay", "set_created_items", created_items)
-		NQS_BNE_Init = true
+		NQS_BNE_Init = NQS_BNE_Init or {}
+		NQS_BNE_Init[e.player_index] = true
 	end
 )
