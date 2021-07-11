@@ -1,5 +1,9 @@
-script.on_init(
-	function()
+script.on_event(defines.events.on_cutscene_cancelled,
+	function(e)
+		if NQS_BNE_Init then
+			return
+		end
+		local player = game.players[e.player_index]
 		-- Variables
 		local created_items = remote.call("freeplay", "get_created_items")
 		AAII = false
@@ -64,7 +68,7 @@ script.on_init(
 
 		-- Insert in inventory function
 		function inventory(pname, pamount)
-			created_items[pname] = pamount
+			created_items[pname] = (created_items[pname] or 0) + pamount
 		end
 
 		-- Checking list for custom entities
@@ -151,8 +155,6 @@ script.on_init(
 			inbackpack = false
 
 			-- Define vectors for grid size
-			gridwidth = {5, 7, 10, 12, 14, 16, 9, 10, 10, 12, 12}
-			gridheight = {5, 7, 10, 12, 14, 16, 9, 10, 10, 12, 12}
 			gridmt = {}
 
 			-- Checking whether to put equipment in inventory or grid
@@ -271,8 +273,6 @@ script.on_init(
 
 			-- Give armor
 			if not noarmor then
-				grid = player.get_inventory(defines.inventory.character_armor)[1].grid
-
 				if inbackpack then
 					-- Insert in backpack
 					-- Powersources in backpack
@@ -333,19 +333,55 @@ script.on_init(
 						inventory("belt-immunity-equipment", 1)
 					end
 				else
+					local function findArmorGrid()
+						local function isInventoryValid(inv)
+							return inv and inv.valid and not inv.is_empty()
+						end
+						local function isArmorValid(item)
+							return item and item.valid and item.valid_for_read and item.is_armor and item.grid
+						end
+
+						local firstInv = player.get_inventory(5)
+						if isInventoryValid(firstInv) then
+							for k = #firstInv, 1, -1 do
+								local v = firstInv[k]
+								if isArmorValid(v) then
+									return v.grid
+								end
+							end
+						end
+
+						local secondInv = player.get_main_inventory()
+						if isInventoryValid(secondInv) then
+							for k = #secondInv, 1, -1 do
+								local v = secondInv[k]
+								if isArmorValid(v) then
+									return v.grid
+								end
+							end
+						end
+					end
+					local grid = findArmorGrid()
+					-- Insert in grid function
+					local function gridput(eqname, gridcol, gridrow)
+						grid.put({name = eqname, position = {gridcol,gridrow}})
+					end
+
+					local gridwidth = grid.width
+					local gridheight = grid.height
 					-- Reserve original amount of roboports
 					roboportsoriginal = roboports
 					-- Create gridmatrix
-					for x = 0, (gridheight[armortype] - 1) do
+					for x = 0, (gridheight - 1) do
 						gridmt[x] = {}
-						for y = 0, (gridwidth[armortype] - 1) do
+						for y = 0, (gridwidth - 1) do
 							gridmt[x][y] = 0
 						end
 					end
 
 					-- Adding equipment to grid
-					for j = 0, (gridwidth[armortype] - 1) do
-						for i = 0, (gridheight[armortype] - 1) do
+					for j = 0, (gridwidth - 1) do
+						for i = 0, (gridheight - 1) do
 							-- Solar Panels and Fusion Reactors
 							if powersources > 0 and gridmt[j][i] == 0 then
 								if powersourcetype == 1 then
@@ -355,7 +391,7 @@ script.on_init(
 								elseif powersourcetype == 2 then
 									w = j + 3
 									h = i + 3
-									if gridwidth[armortype] > w and gridheight[armortype] > h then
+									if gridwidth > w and gridheight > h then
 										gridput(powertype, j, i)
 										powersources = powersources - 1
 										for k = j, w do
@@ -367,7 +403,7 @@ script.on_init(
 								elseif powersourcetype == 3 then
 									w = j + 1
 									h = i + 2
-									if gridwidth[armortype] > w and gridheight[armortype] > h then
+									if gridwidth > w and gridheight > h then
 										gridput(powertype, j, i)
 										powersources = powersources - 1
 										for k = j, w do
@@ -379,7 +415,7 @@ script.on_init(
 								elseif powersourcetype == 4 then
 									w = j + 3
 									h = i + 3
-									if gridwidth[armortype] > w and gridheight[armortype] > h then
+									if gridwidth > w and gridheight > h then
 										gridput(powertype, j, i)
 										powersources = powersources - 1
 										if fuelcells > 0 then
@@ -398,7 +434,7 @@ script.on_init(
 							if batteries > 0 and gridmt[j][i] == 0 then
 								w = j
 								h = i + 1
-								if gridheight[armortype] > h then
+								if gridheight > h then
 									gridput(batterytype, j, i)
 									batteries = batteries - 1
 									for k = j, w do
@@ -413,7 +449,7 @@ script.on_init(
 							if oxygenmod and settings.global["uqs-oxygen-gas-mask"].value and not oxygengasmaskplaced and gridmt[j][i] == 0 then
 								w = j + 1
 								h = i + 1
-								if gridwidth[armortype] > w and gridheight[armortype] > h then
+								if gridwidth > w and gridheight > h then
 									gridput("gas-mask", j, i)
 									oxygengasmaskplaced = true
 									for k = j, w do
@@ -428,7 +464,7 @@ script.on_init(
 							if settings.global["uqs-equipment-night-vision"].value and not nightvisionplaced and gridmt[j][i] == 0 then
 								w = j + 1
 								h = i + 1
-								if gridwidth[armortype] > w and gridheight[armortype] > h then
+								if gridwidth > w and gridheight > h then
 									gridput("night-vision-equipment", j, i)
 									nightvisionplaced = true
 									for k = j, w do
@@ -444,7 +480,7 @@ script.on_init(
 								if personalroboporttype == 1 then
 									w = j + 1
 									h = i + 1
-									if gridwidth[armortype] > w and gridheight[armortype] > h then
+									if gridwidth > w and gridheight > h then
 										gridput("personal-roboport-equipment", j, i)
 										roboports = roboports - 1
 										for k = j, w do
@@ -456,7 +492,7 @@ script.on_init(
 								elseif personalroboporttype == 2 then
 									w = j + 1
 									h = i + 1
-									if gridwidth[armortype] > w and gridheight[armortype] > h then
+									if gridwidth > w and gridheight > h then
 										gridput("personal-roboport-mk2-equipment", j, i)
 										roboports = roboports - 1
 										for k = j, w do
@@ -472,7 +508,7 @@ script.on_init(
 							if exoskeletons > 0 and gridmt[j][i] == 0 then
 								w = j + 1
 								h = i + 3
-								if gridwidth[armortype] > w and gridheight[armortype] > h then
+								if gridwidth > w and gridheight > h then
 									gridput(exoskeletontype, j, i)
 									exoskeletons = exoskeletons - 1
 									for k = j, w do
@@ -487,7 +523,7 @@ script.on_init(
 							if energyshields > 0 and gridmt[j][i] == 0 then
 								w = j + 1
 								h = i + 1
-								if gridwidth[armortype] > w and gridheight[armortype] > h then
+								if gridwidth > w and gridheight > h then
 									gridput(energyshieldtype, j, i)
 									energyshields = energyshields - 1
 									for k = j, w do
@@ -502,7 +538,7 @@ script.on_init(
 							if dischargedefense > 0 and gridmt[j][i] == 0 then
 								w = j + 1
 								h = i + 1
-								if gridwidth[armortype] > w and gridheight[armortype] > h then
+								if gridwidth > w and gridheight > h then
 									gridput("discharge-defense-equipment", j, i)
 									dischargedefense = dischargedefense - 1
 									for k = j, w do
@@ -517,7 +553,7 @@ script.on_init(
 							if personallaserdefenses > 0 and gridmt[j][i] == 0 then
 								w = j + 1
 								h = i + 1
-								if gridwidth[armortype] > w and gridheight[armortype] > h then
+								if gridwidth > w and gridheight > h then
 									gridput("personal-laser-defense-equipment", j, i)
 									personallaserdefenses = personallaserdefenses - 1
 									for k = j, w do
@@ -536,8 +572,8 @@ script.on_init(
 							end
 						end
 					end
-					for j = 0, (gridwidth[armortype] - 1) do
-						for i = 0, (gridheight[armortype] - 1) do
+					for j = 0, (gridwidth - 1) do
+						for i = 0, (gridheight - 1) do
 							-- Fill empty with solar panels
 							if settings.global["uqs-equipment-solar-fill"].value and grid.get({j, i}) == nil then
 								gridput("solar-panel-equipment", j, i)
@@ -702,11 +738,18 @@ script.on_init(
 		if not noarmor then
 			player.insert{name = armorname[armortype], count = 1}
 		end
+
+		-- Insert in inventory function
+		function inventory(pname, pamount)
+			created_items[pname]=(created_items[pname] or 0) + pamount
+		end
+
 		getarmor()
 		getguns()
 
 		getstuff()
 
 		remote.call("freeplay", "set_created_items", created_items)
+		NQS_BNE_Init = true
 	end
 )
