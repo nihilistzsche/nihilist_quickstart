@@ -226,7 +226,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 				else
 					robotmult = 25
 				end
-			elseif settings.global["uqs-equipment-personal-roboport"].value == "None2" then
+			elseif settings.global["uqs-equipment-personal-roboport"].value == "None" then
 				roboports = 0
 			end
 
