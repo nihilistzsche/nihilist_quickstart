@@ -460,7 +460,7 @@ script.on_init(
 			end
 
 			-- Checking settings for furnaces, crushers, omnitractors, chests
-			if Angelsrefining and settings.global["uqs-number-of-crushers"].value > 0 then
+			if Angelsrefining and (settings.global["uqs-number-of-crushers"].value > 0 or settings.global["uqs-number-of-sorters"].value > 0) then
 				if settings.global["uqs-type-of-crushers"].value then
 					inventory("ore-crusher", settings.global["uqs-number-of-crushers"].value)
 				else
