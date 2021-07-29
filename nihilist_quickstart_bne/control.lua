@@ -1,8 +1,4 @@
--- luacheck: globals NQS_BNE_Init
-local script = _G["script"]
-local game = _G["game"]
-local settings = _G["settings"]
-local defines = _G["defines"]
+-- luacheck: globals NQS_BNE_Init script defines game settings
 
 script.on_event(defines.events.on_cutscene_cancelled,
 	function(e)
