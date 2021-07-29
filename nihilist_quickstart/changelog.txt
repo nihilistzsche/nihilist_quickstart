@@ -3,12 +3,12 @@ Version: 1.0.5
 Date: 2021-07-10
   Mod support:
     - Deadlock Beltboxes and Loaders (beltboxes)
-	- Angels Ore Sorting Machines
+    - Angels Ore Sorting Machines
   Changes:
     - A lot of maximum values have been increased.
-	- nihilist_quickstart still had code to give the player armor despite the
-	option moving to nihilist_quickstart_bne so I removed the code from
-	nihilist_quickstart there should be no noticeable effect.
+    - nihilist_quickstart still had code to give the player armor despite the
+      option moving to nihilist_quickstart_bne so I removed the code from
+      nihilist_quickstart there should be no noticeable effect.
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2021-07-06
@@ -98,7 +98,7 @@ Date: 2019-05-23
 Version: 1.4.6
 Date: 2019-05-22
   Changes:
-    - Removed basic heat pipes, since they aren't a must have. 
+    - Removed basic heat pipes, since they aren't a must have.
 ---------------------------------------------------------------------------------------------------
 Version: 1.4.5
 Date: 2019-05-22

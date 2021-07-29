@@ -1,3 +1,5 @@
+local mods = _G["mods"]
+local data = _G["data"]
 -- defining arrays
 local roboportsallowed = {}
 local robotsmodallowed = {}
@@ -120,6 +122,13 @@ end
 if mods["Portable_power"] then
 	table.insert(powerallowed, "Portable generators")
 	table.insert(powerallowed, "Portable reactors")
+end
+
+if mods["wireless-power"] then
+	table.insert(powerallowed, "Personal Tesseract")
+	table.insert(powerallowed, "Personal Tesseract Mk2")
+	table.insert(powerallowed, "Personal Tesseract Mk3")
+	table.insert(powerallowed, "Personal Tesseract Mk4")
 end
 
 -- Oxygen 2.0

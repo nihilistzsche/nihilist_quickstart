@@ -1,3 +1,5 @@
+local data = _G["data"]
+local mods = _G["mods"]
 -- Defining arrays
 local inserters = {}
 local pipes = {}

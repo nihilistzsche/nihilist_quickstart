@@ -1,3 +1,9 @@
+-- luacheck: globals NQS_BNE_Init
+local script = _G["script"]
+local game = _G["game"]
+local settings = _G["settings"]
+local defines = _G["defines"]
+
 script.on_event(defines.events.on_cutscene_cancelled,
 	function(e)
 		if NQS_BNE_Init and NQS_BNE_Init[e.player_index] then
@@ -5,87 +11,38 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		end
 		local player = game.players[e.player_index]
 		-- Variables
-		AAII = false
-		Angelsrefining = false
-		Omnimatter = false
-		Boblogistics = false
-		pyCoal = false
-		pyOres = false
-		pyIndustry = false
-		deadlockloaders = false
-		thermalsolar = false
-		amatorcoal = false
-		generators = 0
-		needwater = false
-		logisticbelts = false
-		logisticrobots = false
-		yuoki = false
-		oxygenmod = false
+		local oxygenmod
 
 		-- Check for active mods
-		for name, version in pairs(game.active_mods) do
-			if name == "aai-industry" then
-				AAII = true
-			end
-			if name == "angelsrefining" then
-				Angelsrefining = true
-			end
-			if name == "omnimatter" then
-				Omnimatter = true
-			end
-			if name == "boblogistics" then
-				Boblogistics = true
-			end
-			if name == "pycoalprocessing" then
-				pyCoal = true
-			end
-			if name == "pyrawores" then
-				pyOres = true
-			end
-			if name == "pyindustry" then
-				pyIndustry = true
-			end
-			if name == "DeadlockLoaders" then
-				deadlockloaders = true
-			end
-			if name == "CW-thermal-solar-power" then
-				thermalsolar = true
-			end
-			if name == "apm_power" then
-				amatorcoal = true
-			end
-			if name == "Yuoki" then
-				yuoki = true
-			end
-			if name == "Portable_power" then
-				Portablepower = true
-			end
+		for name in pairs(game.active_mods) do
 			if name == "Oxygen2_0" then
 				oxygenmod = true
 			end
 		end
 
 		-- Insert in inventory function
-		function inventory(pname, pamount)
+		local function inventory(pname, pamount)
 			player.insert{name = pname, count = pamount}
 		end
 
 		-- Checking list for custom entities
 		--	if not settings.global["uqs-custom-entities"].value == "" then
 		for word in string.gmatch(settings.global["uqs-custom-entities"].value, "%S+") do
-			customnamebase, customnumberbase = string.match(word, "(.+):(%d+)")
-			customname = tostring(customnamebase)
-			customnumber = tonumber(customnumberbase)
+			local customnamebase, customnumberbase = string.match(word, "(.+):(%d+)")
+			local customname = tostring(customnamebase)
+			local customnumber = tonumber(customnumberbase)
 			if game.item_prototypes[customname] and type(customnumber) == "number" and customnumber > 0 then
 				inventory(customname, customnumber)
 			else
 				game.print(
 					"Error when loading custom entities. Check settings for spelling error and restart to receive requested items."
 				)
+				game.print(customname)
 			end
 		end
 		--	end
 
+		local conbots, logbots
 		-- Checking settings for robots
 		if settings.global["uqs-robots-mod"].value == "Bob's mk2" then
 			conbots = "bob-construction-robot-2"
@@ -113,6 +70,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			logbots = "logistic-robot"
 		end
 
+		local armortype, noarmor
 		-- Checking for armor type
 		if settings.global["uqs-armor"].value == "Modular Armor" then
 			armortype = 1
@@ -141,26 +99,26 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		end
 
 		-- Armor generation
-		function getarmor()
+		local function getarmor()
 			-- Define variables
-			robotmult = 0
-			robots = 0
-			powertype = 1
-			batterytype = 1
-			personalroboporttype = 1
-			energyshieldtype = 1
-			beltimmunityplaced = false
-			nightvisionplaced = false
-			inbackpack = false
+			local robotmult = 0
+			local powertype = 1
+			local batterytype = 1
+			local personalroboporttype = 1
+			local energyshieldtype = 1
+			local beltimmunityplaced = false
+			local nightvisionplaced = false
+			local inbackpack = false
 
 			-- Define vectors for grid size
-			gridmt = {}
+			local gridmt = {}
 
 			-- Checking whether to put equipment in inventory or grid
 			if settings.global["uqs-equipment-in-backpack"].value then
 				inbackpack = true
 			end
 
+			local powersourcetype, fuelcells
 			-- Checking power source
 			if settings.global["uqs-equipment-power"].value == "Solar panels" then
 				powertype = "solar-panel-equipment"
@@ -193,11 +151,23 @@ script.on_event(defines.events.on_cutscene_cancelled,
 				powertype = "portable-reactor-equipment"
 				powersourcetype = 4
 				fuelcells = settings.global["uqs-number-of-uranium-fuel"].value
+			elseif settings.global["uqs-equipment-power"].value == "Personal Tesseract" then
+				powertype = "personal-tesseract-1"
+				powersourcetype = 1
+			elseif settings.global["uqs-equipment-power"].value == "Personal Tesseract Mk2" then
+				powertype = "personal-tesseract-2"
+				powersourcetype = 1
+			elseif settings.global["uqs-equipment-power"].value == "Personal Tesseract Mk3" then
+				powertype = "personal-tesseract-3"
+				powersourcetype = 1
+			elseif settings.global["uqs-equipment-power"].value == "Personal Tesseract Mk4" then
+				powertype = "personal-tesseract-4"
+				powersourcetype = 1
 			end
-			powersources = settings.global["uqs-number-of-panels-reactors"].value
+			local powersources = settings.global["uqs-number-of-panels-reactors"].value
 
 			-- Checking settings for battery
-			batteries = settings.global["uqs-number-of-batteries"].value
+			local batteries = settings.global["uqs-number-of-batteries"].value
 			if settings.global["uqs-equipment-battery"].value == "Battery" then
 				batterytype = "battery-equipment"
 			elseif settings.global["uqs-equipment-battery"].value == "Battery MK2" then
@@ -215,7 +185,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 
 			-- Checking settings for roboport
-			roboports = settings.global["uqs-number-of-personal-roboports"].value
+			local roboports = settings.global["uqs-number-of-personal-roboports"].value
 			if settings.global["uqs-equipment-personal-roboport"].value == "Roboport" then
 				personalroboporttype = 1
 				robotmult = 10
@@ -231,7 +201,8 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 
 			-- Checking settings for exoskeletons
-			exoskeletons = settings.global["uqs-number-of-exoskeletons"].value
+			local exoskeletons = settings.global["uqs-number-of-exoskeletons"].value
+			local exoskeletontype
 			if settings.global["uqs-equipment-exoskeletons"].value == "Exoskeleton" then
 				exoskeletontype = "exoskeleton-equipment"
 			elseif settings.global["uqs-equipment-exoskeletons"].value == "Exoskeleton MK2" then
@@ -243,7 +214,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 
 			-- Checking settings for energy shield
-			energyshields = settings.global["uqs-number-of-energy-shields"].value
+			local energyshields = settings.global["uqs-number-of-energy-shields"].value
 			if settings.global["uqs-equipment-energy-shield"].value == "Energy Shield" then
 				energyshieldtype = "energy-shield-equipment"
 			elseif settings.global["uqs-equipment-energy-shield"].value == "Energy Shield MK2" then
@@ -260,6 +231,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 				energyshields = 0
 			end
 
+			local dischargedefense
 			-- Checking settings for discharge defense
 			if settings.global["uqs-equipment-discharge-defense"].value then
 				dischargedefense = 1
@@ -268,7 +240,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 
 			-- Checking settings for personal laser defense
-			personallaserdefenses = settings.global["uqs-number-of-personal-laser-defense"].value
+			local personallaserdefenses = settings.global["uqs-number-of-personal-laser-defense"].value
 
 			-- Give armor
 			if not noarmor then
@@ -369,7 +341,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 					local gridwidth = grid.width
 					local gridheight = grid.height
 					-- Reserve original amount of roboports
-					roboportsoriginal = roboports
+					local roboportsoriginal = roboports
 					-- Create gridmatrix
 					for x = 0, (gridheight - 1) do
 						gridmt[x] = {}
@@ -377,6 +349,9 @@ script.on_event(defines.events.on_cutscene_cancelled,
 							gridmt[x][y] = 0
 						end
 					end
+					local w,h
+
+					local oxygengasmaskplaced = false
 
 					-- Adding equipment to grid
 					for j = 0, (gridwidth - 1) do
@@ -443,7 +418,6 @@ script.on_event(defines.events.on_cutscene_cancelled,
 									end
 								end
 							end
-
 							-- Oxygen Gas Mask
 							if oxygenmod and settings.global["uqs-oxygen-gas-mask"].value and not oxygengasmaskplaced and gridmt[j][i] == 0 then
 								w = j + 1
@@ -579,7 +553,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 							end
 						end
 					end
-					roboportsinserted = roboportsoriginal - roboports
+					local roboportsinserted = roboportsoriginal - roboports
 					if settings.global["uqs-supply-robots"].value and roboportsinserted > 0 then
 						player.insert {name = conbots, count = roboportsinserted * robotmult}
 					end
@@ -588,15 +562,15 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		end
 
 		-- Give robots and stuff to player
-		function getstuff()
-			roboportsnumber = settings.global["uqs-number-of-roboports"].value
-			logbotsnumber = settings.global["uqs-number-of-logistic-robots"].value
-			conbotsnumber = settings.global["uqs-number-of-construction-robots"].value
-			requesternumber = settings.global["uqs-number-of-requester-chests"].value
-			providernumber = settings.global["uqs-number-of-provider-chests"].value
-			storagenumber = settings.global["uqs-number-of-storage-chests"].value
-			ammonumber = settings.global["uqs-number-of-ammo"].value
+		local function getstuff()
+			local roboportsnumber = settings.global["uqs-number-of-roboports"].value
+			local logbotsnumber = settings.global["uqs-number-of-logistic-robots"].value
+			local conbotsnumber = settings.global["uqs-number-of-construction-robots"].value
+			local requesternumber = settings.global["uqs-number-of-requester-chests"].value
+			local providernumber = settings.global["uqs-number-of-provider-chests"].value
+			local storagenumber = settings.global["uqs-number-of-storage-chests"].value
 
+			local roboporttype
 			-- Bobslogistics: roboport mk2 mk3 mk4, pyindustry: pyRoboport Yuoki: YiRoboport
 			if settings.global["uqs-type-of-roboports"].value == "Vanilla" then
 				roboporttype = 1
@@ -614,6 +588,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 				roboporttype = 0
 			end
 
+			local giveroboports, giverobots, givechests
 			if roboporttype > 0 and roboportsnumber > 0 then
 				giveroboports = true
 				if settings.global["uqs-robots-mod"].value == "None" then
@@ -680,7 +655,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 		end
 
-		function getguns()
+		local function getguns()
 			-- Guns and ammo
 			if settings.global["uqs-equipment-gun-provide"].value then
 				-- Guns
@@ -697,7 +672,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 				elseif settings.global["uqs-equipment-gun"].value == "Flamethrower" then
 					inventory("flamethrower", 1)
 				end
-
+				local ammonumber = settings.global["uqs-number-of-ammo"].value
 				-- Ammo
 				if settings.global["uqs-equipment-ammo"].value == "Firearm magazine" then
 					inventory("firearm-magazine", ammonumber)
@@ -721,7 +696,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 		end
 		-- Give armor and equipment
-		armorname = {
+		local armorname = {
 			"modular-armor",
 			"power-armor",
 			"power-armor-mk2",

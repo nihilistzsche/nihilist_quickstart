@@ -1,32 +1,43 @@
-script.on_event(defines.events.on_cutscene_cancelled,
+-- luacheck: globals NQS_Init
+local script = _G["script"]
+local defines = _G["defines"]
+local game = _G["game"]
+local settings = _G["settings"]
+
+script.on_event(
+	defines.events.on_cutscene_cancelled,
 	function(e)
 		if NQS_Init and NQS_Init[e.player_index] then
 			return
 		end
+
 		local player = game.players[e.player_index]
+
+		-- Armor generation
+		local function inventory(pname, pamount)
+			player.insert {name = pname, count = pamount}
+		end
+
 		-- Variables
-		AAII = false
-		Angelsrefining = false
-		Omnimatter = false
-		Boblogistics = false
-		pyCoal = false
-		pyOres = false
-		pyIndustry = false
-		deadlockloaders = false
-		deadlockbeltboxes = false
-		thermalsolar = false
-		amatorcoal = false
-		generators = 0
-		needwater = false
-		logisticbelts = false
-		logisticrobots = false
-		yuoki = false
-		vanillaloadershd = false
-		miningdrones = false
-		miniloaders = false
-		marketmod = false
-		oxygenmod = false
-		electricboiler = false
+		local AAII = false
+		local Angelsrefining = false
+		local Omnimatter = false
+		local omnifluid = false
+		local Boblogistics = false
+		local pyCoal = false
+		local pyOres = false
+		local pyIndustry = false
+		local deadlockloaders = false
+		local deadlockbeltboxes = false
+		local thermalsolar = false
+		local generators = 0
+		local needwater = false
+		local vanillaloadershd = false
+		local miningdrones = false
+		local miniloaders = false
+		local marketmod = false
+		local oxygenmod = false
+		local electricboiler = false
 
 		-- Check for active game.active_mods
 		if game.active_mods["aai-industry"] then
@@ -37,6 +48,9 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		end
 		if game.active_mods["omnimatter"] then
 			Omnimatter = true
+		end
+		if game.active_mods["omnimatter_fluid"] then
+			omnifluid = true
 		end
 		if game.active_mods["boblogistics"] then
 			Boblogistics = true
@@ -56,15 +70,10 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		if game.active_mods["CW-thermal-solar-power"] then
 			thermalsolar = true
 		end
-		if game.active_mods["apm_power"] then
-			amatorcoal = true
-		end
-		if game.active_mods["Yuoki"] then
-			yuoki = true
-		end
 		if game.active_mods["vanilla-loaders-hd"] then
 			vanillaloadershd = true
 		end
+		local electricfurnaces
 		if game.active_mods["Electric Furnaces"] then
 			electricfurnaces = true
 		end
@@ -83,6 +92,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		if game.active_mods["deadlock-beltboxes-loaders"] then
 			deadlockbeltboxes = true
 		end
+		local bobbasicbelts
 		-- Check for boblogistics and beltoverhaul
 		if Boblogistics and settings.startup["bobmods-logistics-beltoverhaul"].value then
 			bobbasicbelts = true
@@ -90,6 +100,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			bobbasicbelts = false
 		end
 
+		local insertertype, inserternumber
 		-- Check settings for inserters
 		if settings.global["uqs-inserter-type"].value == "Burner only" then
 			insertertype = "burner-inserter"
@@ -101,6 +112,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			inserternumber = 0
 		end
 
+		local belttype, undergroundtype, splittertype
 		-- Check settings for belts
 		if bobbasicbelts and settings.global["uqs-bob-belts"].value then
 			belttype = "basic-transport-belt"
@@ -111,12 +123,12 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			undergroundtype = "underground-belt"
 			splittertype = "splitter"
 		end
-		beltnumber = settings.global["uqs-number-of-belts"].value
-		undergroundnumber = settings.global["uqs-number-of-undergrounds"].value
-		splitternumber = settings.global["uqs-number-of-splitters"].value
+		local beltnumber = settings.global["uqs-number-of-belts"].value
+		local undergroundnumber = settings.global["uqs-number-of-undergrounds"].value
+		local splitternumber = settings.global["uqs-number-of-splitters"].value
 
 		-- Check settings for loaders
-		loadernumber = 0
+		local loadernumber, loadertype = 0, nil
 		if miniloaders or vanillaloadershd or deadlockloaders then
 			if settings.global["uqs-loader-type"].value == "Deadlock's Loaders" then
 				loadernumber = settings.global["uqs-number-of-loaders"].value
@@ -143,7 +155,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 				loadernumber = 0
 			end
 		end
-
+		local beltboxnumber, beltboxtype
 		if deadlockbeltboxes then
 			if settings.global["uqs-number-of-beltboxes"].value > 0 then
 				beltboxnumber = settings.global["uqs-number-of-beltboxes"].value
@@ -154,6 +166,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 				end
 			end
 		end
+		local pipetype, pipeundergroundtype
 		-- Check settings for pipes
 		if Boblogistics and settings.global["uqs-bob-pipes"].value then
 			pipetype = "stone-pipe"
@@ -162,12 +175,13 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			pipetype = "pipe"
 			pipeundergroundtype = "pipe-to-ground"
 		end
-		pipenumber = settings.global["uqs-number-of-pipes"].value
-		pipeundergroundnumber = settings.global["uqs-number-of-pipe-undergrounds"].value
+		local pipenumber = settings.global["uqs-number-of-pipes"].value
+		local pipeundergroundnumber = settings.global["uqs-number-of-pipe-undergrounds"].value
 
 		-- Check settings for mining drills
-		minernumber = 0
-		minernumber2 = 0
+		local minernumber
+		local minernumber2 = 0
+		local minertype, minertype2
 		if settings.global["uqs-miner-type"].value == "Burner mining drills" then
 			minertype = "burner-mining-drill"
 			minernumber = settings.global["uqs-number-of-miners"].value
@@ -186,10 +200,10 @@ script.on_event(defines.events.on_cutscene_cancelled,
 
 		-- Check settings for labs and assemblers
 		-- Settings default balues
-		labtype = "lab"
-		labnumber = settings.global["uqs-number-of-labs"].value
-		assemblertype = "assembling-machine-1"
-		assemblernumber = settings.global["uqs-number-of-assemblers"].value
+		local labtype = "lab"
+		local labnumber = settings.global["uqs-number-of-labs"].value
+		local assemblertype = "assembling-machine-1"
+		local assemblernumber = settings.global["uqs-number-of-assemblers"].value
 
 		if settings.global["uqs-labs-assemblers"].value == "AAII Burner" then
 			labtype = "burner-lab"
@@ -214,13 +228,14 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		end
 
 		-- Checking settings for power poles
-		poletype = "small-electric-pole"
-		polenumber = settings.global["uqs-number-of-poles"].value
+		local poletype = "small-electric-pole"
+		local polenumber = settings.global["uqs-number-of-poles"].value
 
 		if AAII and settings.global["uqs-aai-power-poles"] then
 			poletype = "small-iron-electric-pole"
 		end
 
+		local omnitractortype, omnitractornumber
 		-- Check settings for omnitractors
 		if Omnimatter then
 			omnitractornumber = settings.global["uqs-number-of-omnitractors"].value
@@ -232,14 +247,18 @@ script.on_event(defines.events.on_cutscene_cancelled,
 		end
 
 		-- Check settings for furnaces
-		furnacenumber = settings.global["uqs-number-of-furnaces"].value
+		local furnacenumber = settings.global["uqs-number-of-furnaces"].value
 
+		local furnacetype
 		if electricfurnaces and settings.global["uqs-electric-furnaces"].value then
 			furnacetype = "electric-stone-furnace"
 		else
 			furnacetype = "stone-furnace"
 		end
 
+		-- luacheck: push no max code line length
+		local marketcheststype, marketchestsnumber, markettanksnumber, markettankstype, marketaccumulatorsnumber, marketaccumulatorstype
+		-- luacheck: pop
 		-- Check settings for marketmod
 		if marketmod then
 			marketchestsnumber = settings.global["uqs-number-of-market-chests"].value
@@ -250,20 +269,29 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			marketaccumulatorstype = "marketitem-accumulator"
 		end
 
+		local oxygenbottlestype, oxygenbottlesnumber
 		-- Check settings for Oxygen 2.0
 		if oxygenmod then
 			oxygenbottlesnumber = settings.global["uqs-number-of-oxygen-bottles"].value
 			oxygenbottlestype = "oxygen-bottle"
 		end
-
+		local boilertype
 		if electricboiler and settings.global["uqs-provide-electric-boilers"].value then
-			boilertype = "electric-boiler"
+			if omnifluid then
+				boilertype = "electric-boiler-converter"
+			else
+				boilertype = "electric-boiler"
+			end
 		else
-			boilertype = "boiler"
+			if omnifluid then
+				boilertype = "boiler-converter"
+			else
+				boilertype = "boiler"
+			end
 		end
 
 		-- Give belt and stuff to player
-		function getstuff(player)
+		local function getstuff()
 			-- Inserting inserters
 			if inserternumber > 0 then
 				inventory(insertertype, inserternumber)
@@ -358,9 +386,10 @@ script.on_event(defines.events.on_cutscene_cancelled,
 					inventory(oxygenbottlestype, oxygenbottlesnumber)
 				end
 			end
-
+			-- luacheck: push no max comment line length
 			-- Checking settings for power structures
 			-- Check for settings "AAII Burner Turbines", "AAII Steam Power", "Steam Power", "Thermal Solar Power", "Solar Panels", "None"
+			-- luacheck: pop
 			if settings.global["uqs-desired-power-output"].value > 0 then
 				if settings.global["uqs-power-type"].value == "AAII Burner Turbines" then
 					if AAII then
@@ -411,7 +440,11 @@ script.on_event(defines.events.on_cutscene_cancelled,
 					generators = math.floor(settings.global["uqs-desired-power-output"].value / 1.8 + 0.99)
 					inventory(boilertype, generators)
 					inventory("steam-engine", generators * 2)
-					inventory("offshore-pump", math.floor(generators / 20 + 0.99))
+					if omnifluid then
+						inventory("burner-omnitractor", math.floor(generators / 5 + 0.99))
+					else
+						inventory("offshore-pump", math.floor(generators / 20 + 0.99))
+					end
 					if settings.global["uqs-electric-inserters"].value then
 						inventory("inserter", generators)
 					else
@@ -435,10 +468,15 @@ script.on_event(defines.events.on_cutscene_cancelled,
 							end
 						end
 						generators = math.floor(settings.global["uqs-desired-power-output"].value / 1.8 + 0.99)
-						inventory("CW-basic-heat-exchanger", generators)
+						if omnifluid then
+							inventory("CW-basic-heat-exchanger-converter", generators)
+							inventory('burner-omnitractor', math.floor(generators / 5 + 0.99))
+						else
+							inventory("CW-basic-heat-exchanger", generators)
+							inventory("offshore-pump", math.floor(generators / 20 + 0.99))
+						end
 						inventory("steam-engine", generators * 2)
 						inventory("CW-thermal-solar-panel", generators * 18)
-						inventory("offshore-pump", math.floor(generators / 20 + 0.99))
 						if settings.global["uqs-provide-steam-battery"].value then
 							inventory("storage-tank", generators)
 						end
@@ -457,13 +495,16 @@ script.on_event(defines.events.on_cutscene_cancelled,
 
 			-- Water for power in omnimatter
 			if Omnimatter and needwater then
-				numberofwater = math.floor(settings.global["uqs-desired-power-output"].value / 18 + 0.99)
+				local numberofwater = math.floor(settings.global["uqs-desired-power-output"].value / 18 + 0.99)
 				inventory("omniphlog-1", numberofwater)
 				inventory("omnitractor-1", numberofwater)
 			end
 
 			-- Checking settings for furnaces, crushers, omnitractors, chests
-			if Angelsrefining and (settings.global["uqs-number-of-crushers"].value > 0 or settings.global["uqs-number-of-sorters"].value > 0) then
+			if
+				Angelsrefining and
+					(settings.global["uqs-number-of-crushers"].value > 0 or settings.global["uqs-number-of-sorters"].value > 0)
+			 then
 				if settings.global["uqs-type-of-crushers"].value then
 					inventory("ore-crusher", settings.global["uqs-number-of-crushers"].value)
 				else
@@ -522,8 +563,8 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 
 			-- Checking settings for defensive structures
-			gunturretammotype = "firearm-magazine"
-			gunturretammonumer = 0
+			local gunturretammotype = "firearm-magazine"
+			local gunturretammonumber
 			if settings.global["uqs-number-of-gun-turrets"].value > 0 then
 				inventory("gun-turret", settings.global["uqs-number-of-gun-turrets"].value)
 				if settings.global["uqs-type-of-gun-turret-ammo"].value == "Piercing rounds" then
@@ -543,12 +584,7 @@ script.on_event(defines.events.on_cutscene_cancelled,
 			end
 		end
 
-		-- Armor generation
-		function inventory(pname, pamount)
-			player.insert{name = pname, count =  pamount}
-		end
-		-- Give belt and stuff to player
-		getstuff(created_items)
+		getstuff()
 
 		NQS_Init = NQS_Init or {}
 		NQS_Init[e.player_index] = true
