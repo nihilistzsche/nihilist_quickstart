@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: ??
+  Mod Support:
+    - Angel's Smelting: Induction Furnaces, Blaast Furnaces, Casting Machines
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2021-07-31
+  Misc:
+    - Bumping the version number as I've run the code now through luacheck
+      and started optimizing, so marking it clearly different from its
+      predecessor.
+  Changes:
+    - Fixed so that it can work again when no cutscene is present, such
+      as in a scenario or when the crash site is disabled.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 2021-07-10
   Mod support:

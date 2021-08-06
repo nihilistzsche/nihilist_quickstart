@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2021-07-31
+  Misc:
+    - Bumping the version number as I've run the code now through luacheck
+      and started optimizing, so marking it clearly different from its
+      predecessor.
+  Changes:
+    - Fixed so that it can work again when no cutscene is present, such
+      as in a scenario or when the crash site is disabled.
+---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2021-07-10
   Changes:
@@ -42,7 +52,7 @@ Date: 2020-01-21
     - Construction robots are now also given when equipment is placed in backpack.
     - It is now possible to clear the settings for custom items
   Features:
-    - Adding more options for modded equipment, atm more tiers from Bob's 
+    - Adding more options for modded equipment, atm more tiers from Bob's
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2020-01-01

@@ -132,7 +132,7 @@ if mods["wireless-power"] then
 end
 
 -- Oxygen 2.0
-if mods["Oxygen2_0"] then
+if mods["Oxygen_Patched"] then
 	data:extend(
 		{
 			{
