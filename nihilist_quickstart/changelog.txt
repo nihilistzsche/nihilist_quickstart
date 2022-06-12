@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.0
+Date: ??
+  Major refactoring, though functionality mostly remains the same.
+  Mod support:
+    - Krastorio2: Crushers
+	- LinkedBelts: Linked belts
+---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: ??
   Mod Support:

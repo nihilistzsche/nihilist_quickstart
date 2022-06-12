@@ -38,19 +38,22 @@ table.insert(ammo, "Piercing rounds")
 if mods["omnimatter_energy"] then
 	table.insert(fuel, 4, "Purified Omnite")
 end
+if mods["Krastorio2"] then
+	table.insert(fuel, 4, "Processed Fuel")
+end
 
 data:extend(
 	{
 		{
 			type = "bool-setting",
-			name = "uqs-clear-inventory",
+			name = "nqs-clear-inventory",
 			setting_type = "runtime-global",
 			default_value = true,
 			order = "aaaa"
 		},
 		{
 			type = "string-setting",
-			name = "uqs-inserter-type",
+			name = "nqs-inserter-type",
 			setting_type = "runtime-global",
 			default_value = "Burner only",
 			allowed_values = inserters,
@@ -58,7 +61,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-inserters",
+			name = "nqs-number-of-inserters",
 			setting_type = "runtime-global",
 			default_value = 200,
 			maximum_value = 2000,
@@ -67,7 +70,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-belts",
+			name = "nqs-number-of-belts",
 			setting_type = "runtime-global",
 			default_value = 1000,
 			maximum_value = 18000,
@@ -76,7 +79,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-undergrounds",
+			name = "nqs-number-of-undergrounds",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 2000,
@@ -85,7 +88,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-splitters",
+			name = "nqs-number-of-splitters",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 2000,
@@ -94,7 +97,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-pipes",
+			name = "nqs-number-of-pipes",
 			setting_type = "runtime-global",
 			default_value = 100,
 			maximum_value = 1000,
@@ -103,7 +106,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-pipe-undergrounds",
+			name = "nqs-number-of-pipe-undergrounds",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 750,
@@ -112,7 +115,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-miner-type",
+			name = "nqs-miner-type",
 			setting_type = "runtime-global",
 			default_value = "Burner mining drills",
 			allowed_values = mining_drills,
@@ -120,7 +123,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-miners",
+			name = "nqs-number-of-miners",
 			setting_type = "runtime-global",
 			default_value = 100,
 			maximum_value = 500,
@@ -129,7 +132,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-labs-assemblers",
+			name = "nqs-labs-assemblers",
 			setting_type = "runtime-global",
 			default_value = "Electric",
 			allowed_values = assemblers,
@@ -137,7 +140,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-labs",
+			name = "nqs-number-of-labs",
 			setting_type = "runtime-global",
 			default_value = 4,
 			maximum_value = 200,
@@ -146,7 +149,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-assemblers",
+			name = "nqs-number-of-assemblers",
 			setting_type = "runtime-global",
 			default_value = 10,
 			maximum_value = 1000,
@@ -155,7 +158,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-power-type",
+			name = "nqs-power-type",
 			setting_type = "runtime-global",
 			default_value = "Steam Power",
 			allowed_values = power_production,
@@ -163,7 +166,7 @@ data:extend(
 		},
 		{
 			type = "double-setting",
-			name = "uqs-desired-power-output",
+			name = "nqs-desired-power-output",
 			setting_type = "runtime-global",
 			default_value = 7.2,
 			maximum_value = 144,
@@ -172,21 +175,21 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-provide-accumulators",
+			name = "nqs-provide-accumulators",
 			setting_type = "runtime-global",
 			default_value = true,
 			order = "afc"
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-electric-inserters",
+			name = "nqs-electric-inserters",
 			setting_type = "runtime-global",
 			default_value = false,
 			order = "aff"
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-poles",
+			name = "nqs-number-of-poles",
 			setting_type = "runtime-global",
 			default_value = 200,
 			maximum_value = 1500,
@@ -195,7 +198,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-furnaces",
+			name = "nqs-number-of-furnaces",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 1500,
@@ -204,7 +207,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-chests",
+			name = "nqs-number-of-chests",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 1000,
@@ -213,7 +216,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-fuel-type",
+			name = "nqs-fuel-type",
 			setting_type = "runtime-global",
 			default_value = "Coal",
 			allowed_values = fuel,
@@ -221,7 +224,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-fuel",
+			name = "nqs-number-of-fuel",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 5000,
@@ -230,7 +233,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-cliff-explosives",
+			name = "nqs-number-of-cliff-explosives",
 			setting_type = "runtime-global",
 			default_value = 20,
 			maximum_value = 1000,
@@ -239,7 +242,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-gun-turrets",
+			name = "nqs-number-of-gun-turrets",
 			setting_type = "runtime-global",
 			default_value = 0,
 			maximum_value = 100,
@@ -248,7 +251,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-type-of-gun-turret-ammo",
+			name = "nqs-type-of-gun-turret-ammo",
 			setting_type = "runtime-global",
 			default_value = "Firearm magazine",
 			allowed_values = ammo,
@@ -256,7 +259,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-gun-turret-ammo",
+			name = "nqs-number-of-gun-turret-ammo",
 			setting_type = "runtime-global",
 			default_value = 20,
 			maximum_value = 200,
@@ -265,7 +268,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-stone-walls",
+			name = "nqs-number-of-stone-walls",
 			setting_type = "runtime-global",
 			default_value = 200,
 			maximum_value = 5000,
@@ -274,7 +277,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-gates",
+			name = "nqs-number-of-gates",
 			setting_type = "runtime-global",
 			default_value = 20,
 			maximum_value = 500,
@@ -284,21 +287,29 @@ data:extend(
 	}
 )
 
-if mods["deadlock-integrations"] then
+if mods["deadlock-beltboxes-loaders"] then
 	table.insert(loaders, "Deadlock's Loaders")
-
 	data:extend(
 		{
 			{
+				type = "int-setting",
+				name = "nqs-number-of-beltboxes",
+				setting_type = "runtime-global",
+				default_value = 50,
+				maximum_value = 1000,
+				minimum_value = 0,
+				order = "abed"
+			},
+			{
 				type = "bool-setting",
-				name = "uqs-use-basic-loaders",
+				name = "nqs-use-basic-loaders",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "abeb"
 			},
 			{
 				type = "string-setting",
-				name = "uqs-loader-type",
+				name = "nqs-loader-type",
 				setting_type = "runtime-global",
 				default_value = "None",
 				allowed_values = loaders,
@@ -306,28 +317,12 @@ if mods["deadlock-integrations"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-loaders",
+				name = "nqs-number-of-loaders",
 				setting_type = "runtime-global",
 				default_value = 50,
 				maximum_value = 1000,
 				minimum_value = 0,
 				order = "abec"
-			}
-		}
-	)
-end
-
-if mods["deadlock-beltboxes-loaders"] then
-	data:extend(
-		{
-			{
-				type = "int-setting",
-				name = "uqs-number-of-beltboxes",
-				setting_type = "runtime-global",
-				default_value = 50,
-				maximum_value = 1000,
-				minimum_value = 0,
-				order = "abed"
 			}
 		}
 	)
@@ -340,14 +335,14 @@ if mods["vanilla-loaders-hd"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-use-basic-loaders",
+				name = "nqs-use-basic-loaders",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "abeb"
 			},
 			{
 				type = "string-setting",
-				name = "uqs-loader-type",
+				name = "nqs-loader-type",
 				setting_type = "runtime-global",
 				default_value = "None",
 				allowed_values = loaders,
@@ -355,7 +350,7 @@ if mods["vanilla-loaders-hd"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-loaders",
+				name = "nqs-number-of-loaders",
 				setting_type = "runtime-global",
 				default_value = 50,
 				maximum_value = 1000,
@@ -373,14 +368,14 @@ if mods["miniloader"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-use-basic-loaders",
+				name = "nqs-use-basic-loaders",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "abeb"
 			},
 			{
 				type = "string-setting",
-				name = "uqs-loader-type",
+				name = "nqs-loader-type",
 				setting_type = "runtime-global",
 				default_value = "None",
 				allowed_values = loaders,
@@ -388,7 +383,7 @@ if mods["miniloader"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-loaders",
+				name = "nqs-number-of-loaders",
 				setting_type = "runtime-global",
 				default_value = 50,
 				maximum_value = 1000,
@@ -399,14 +394,18 @@ if mods["miniloader"] then
 	)
 end
 
-if mods["Mining_Drones"] then
+if mods["Mining_Drones"] or mods["Upgradable_Mining_Drones"] then
 	table.insert(mining_drills, "Mining Drones")
 
+	local max_drones = 10000
+	if mods["mining_drones_overloaded"] then
+		max_drones = 50 * 65536
+	end
 	data:extend(
 		{
 			{
 				type = "int-setting",
-				name = "uqs-number-of-mining-depots",
+				name = "nqs-number-of-mining-depots",
 				setting_type = "runtime-global",
 				default_value = 5,
 				maximum_value = 50,
@@ -415,10 +414,10 @@ if mods["Mining_Drones"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-mining-drones",
+				name = "nqs-number-of-mining-drones",
 				setting_type = "runtime-global",
 				default_value = 100,
-				maximum_value = 10000,
+				maximum_value = max_drones,
 				minimum_value = 0,
 				order = "adac"
 			}
@@ -431,7 +430,7 @@ if mods["Electric Furnaces"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-electric-furnaces",
+				name = "nqs-electric-furnaces",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "aga"
@@ -445,7 +444,7 @@ if mods["mini-machines"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-mini-furnaces",
+				name = "nqs-mini-furnaces",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "agb"
@@ -459,7 +458,7 @@ if mods["boblogistics"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-bob-belts",
+				name = "nqs-bob-belts",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "aba"
@@ -473,7 +472,7 @@ if mods["boblogistics"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-bob-pipes",
+				name = "nqs-bob-pipes",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "aca"
@@ -490,7 +489,7 @@ if mods["aai-industry"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-aai-power-poles",
+				name = "nqs-aai-power-poles",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "afg"
@@ -510,14 +509,14 @@ if mods["CW-thermal-solar-power"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-provide-steam-battery",
+				name = "nqs-provide-steam-battery",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "afd"
 			},
 			{
 				type = "bool-setting",
-				name = "uqs-provide-heat-accumulators",
+				name = "nqs-provide-heat-accumulators",
 				setting_type = "runtime-global",
 				default_value = false,
 				order = "afe"
@@ -531,7 +530,7 @@ if mods["electricboiler"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-provide-electric-boilers",
+				name = "nqs-provide-electric-boilers",
 				setting_type = "runtime-global",
 				default_value = false,
 				order = "aff"
@@ -545,14 +544,14 @@ if mods["angelsrefining"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-type-of-crushers",
+				name = "nqs-type-of-crushers",
 				setting_type = "runtime-global",
 				default_value = false,
 				order = "agba"
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-crushers",
+				name = "nqs-number-of-crushers",
 				setting_type = "runtime-global",
 				default_value = 10,
 				maximum_value = 500,
@@ -561,7 +560,7 @@ if mods["angelsrefining"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-sorters",
+				name = "nqs-number-of-sorters",
 				setting_type = "runtime-global",
 				default_value = 10,
 				maximum_value = 500,
@@ -575,7 +574,7 @@ if mods["angelssmelting"] then
 		{
 			{
 				type = "int-setting",
-				name = "uqs-number-of-induction-furnaces",
+				name = "nqs-number-of-induction-furnaces",
 				setting_type = "runtime-global",
 				default_value = 10,
 				maximum_value = 500,
@@ -583,7 +582,7 @@ if mods["angelssmelting"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-blast-furnaces",
+				name = "nqs-number-of-blast-furnaces",
 				setting_type = "runtime-global",
 				default_value = 10,
 				maximum_value = 500,
@@ -591,7 +590,7 @@ if mods["angelssmelting"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-casting-machines",
+				name = "nqs-number-of-casting-machines",
 				setting_type = "runtime-global",
 				default_value = 10,
 				maximum_value = 500,
@@ -605,14 +604,14 @@ if mods["omnimatter"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-provide-electric-omnitractors",
+				name = "nqs-provide-electric-omnitractors",
 				setting_type = "runtime-global",
 				default_value = false,
 				order = "agca"
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-omnitractors",
+				name = "nqs-number-of-omnitractors",
 				setting_type = "runtime-global",
 				default_value = 10,
 				maximum_value = 1000,
@@ -628,7 +627,7 @@ if mods["pycoalprocessing"] then
 		{
 			{
 				type = "int-setting",
-				name = "uqs-number-of-plantations",
+				name = "nqs-number-of-plantations",
 				setting_type = "runtime-global",
 				default_value = 4,
 				maximum_value = 20,
@@ -637,7 +636,7 @@ if mods["pycoalprocessing"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-distilators",
+				name = "nqs-number-of-distilators",
 				setting_type = "runtime-global",
 				default_value = 1,
 				maximum_value = 5,
@@ -646,7 +645,7 @@ if mods["pycoalprocessing"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-ponds",
+				name = "nqs-number-of-ponds",
 				setting_type = "runtime-global",
 				default_value = 1,
 				maximum_value = 5,
@@ -655,7 +654,7 @@ if mods["pycoalprocessing"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-gas-vents",
+				name = "nqs-number-of-gas-vents",
 				setting_type = "runtime-global",
 				default_value = 1,
 				maximum_value = 5,
@@ -664,7 +663,7 @@ if mods["pycoalprocessing"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-crystal-mines",
+				name = "nqs-number-of-crystal-mines",
 				setting_type = "runtime-global",
 				default_value = 20,
 				maximum_value = 100,
@@ -680,7 +679,7 @@ if mods["market2"] then
 		{
 			{
 				type = "int-setting",
-				name = "uqs-number-of-market-chests",
+				name = "nqs-number-of-market-chests",
 				setting_type = "runtime-global",
 				default_value = 5,
 				maximum_value = 10,
@@ -689,7 +688,7 @@ if mods["market2"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-market-tanks",
+				name = "nqs-number-of-market-tanks",
 				setting_type = "runtime-global",
 				default_value = 1,
 				maximum_value = 10,
@@ -698,7 +697,7 @@ if mods["market2"] then
 			},
 			{
 				type = "int-setting",
-				name = "uqs-number-of-market-accumulators",
+				name = "nqs-number-of-market-accumulators",
 				setting_type = "runtime-global",
 				default_value = 1,
 				maximum_value = 10,
@@ -714,12 +713,42 @@ if mods["Oxygen_Patched"] then
 		{
 			{
 				type = "int-setting",
-				name = "uqs-number-of-oxygen-bottles",
+				name = "nqs-number-of-oxygen-bottles",
 				setting_type = "runtime-global",
 				default_value = 25,
 				maximum_value = 100,
 				minimum_value = 0,
 				order = "aja"
+			}
+		}
+	)
+end
+if mods["Krastorio2"] then
+	data:extend(
+		{
+			{
+				type = "int-setting",
+				name = "nqs-number-of-crushers",
+				setting_type = "runtime-global",
+				default_value = 5,
+				maximum_value = 25,
+				minimum_value = 0,
+				order = "ajb"
+			}
+		}
+	)
+end
+if mods["LinkedBelts"] then
+	data:extend(
+		{
+			{
+				type = "int-setting",
+				name = "nqs-number-of-linked-belts",
+				setting_type = "runtime-global",
+				default_value = 10,
+				maximum_value = 100,
+				minimum_value = 0,
+				order = "ajc"
 			}
 		}
 	)
