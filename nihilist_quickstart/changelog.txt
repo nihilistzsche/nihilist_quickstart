@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.0
-Date: ??
+Date: 2022-06-12
   Major refactoring, though functionality mostly remains the same.
   Mod support:
     - Krastorio2: Crushers
