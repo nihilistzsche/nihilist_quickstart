@@ -1,10 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.1
+Date: 2022-06-16
+  Misc:
+    - Further refactoring, but it should be much easier to provide support going forward.
+  Bugfixes:
+    - Fixed a nil comparison that could occur due to some unncessary logic regarding gun turrets.
+    - Fixed compatibility with omnimatter_fluid.
+---------------------------------------------------------------------------------------------------
 Version: 3.0.0
 Date: 2022-06-12
-  Major refactoring, though functionality mostly remains the same.
+  Misc:
+    - Major refactoring, though functionality mostly remains the same
   Mod support:
     - Krastorio2: Crushers
-	- LinkedBelts: Linked belts
+    - LinkedBelts: Linked belts
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.2
 Date: ??

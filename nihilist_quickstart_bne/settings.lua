@@ -137,7 +137,7 @@ if mods["Oxygen_Patched"] then
 		{
 			{
 				type = "bool-setting",
-				name = "uqs-oxygen-gas-mask",
+				name = "nqs-oxygen-gas-mask",
 				setting_type = "runtime-global",
 				default_value = true,
 				order = "aja"
@@ -153,7 +153,7 @@ if mods["Portable_power"] then
 		{
 			{
 				type = "int-setting",
-				name = "uqs-number-of-uranium-fuel",
+				name = "nqs-number-of-uranium-fuel",
 				setting_type = "runtime-global",
 				default_value = 50,
 				maximum_value = 250,
@@ -169,7 +169,7 @@ data:extend(
 	{
 		{
 			type = "string-setting",
-			name = "uqs-robots-mod",
+			name = "nqs-robots-mod",
 			setting_type = "runtime-global",
 			default_value = "Vanilla",
 			allowed_values = robotsmodallowed,
@@ -177,7 +177,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-type-of-roboports",
+			name = "nqs-type-of-roboports",
 			setting_type = "runtime-global",
 			default_value = "Vanilla",
 			allowed_values = roboportsallowed,
@@ -185,7 +185,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-roboports",
+			name = "nqs-number-of-roboports",
 			setting_type = "runtime-global",
 			default_value = 10,
 			maximum_value = 50,
@@ -194,14 +194,14 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-provide-robots-alone",
+			name = "nqs-provide-robots-alone",
 			setting_type = "runtime-global",
 			default_value = false,
 			order = "aadb"
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-logistic-robots",
+			name = "nqs-number-of-logistic-robots",
 			setting_type = "runtime-global",
 			default_value = 250,
 			maximum_value = 1000,
@@ -210,7 +210,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-construction-robots",
+			name = "nqs-number-of-construction-robots",
 			setting_type = "runtime-global",
 			default_value = 100,
 			maximum_value = 250,
@@ -219,21 +219,21 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-provide-chests-alone",
+			name = "nqs-provide-chests-alone",
 			setting_type = "runtime-global",
 			default_value = false,
 			order = "aafb"
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-provide-active-providers",
+			name = "nqs-provide-active-providers",
 			setting_type = "runtime-global",
 			default_value = true,
 			order = "aaga"
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-provider-chests",
+			name = "nqs-number-of-provider-chests",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 100,
@@ -242,14 +242,14 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-provide-buffers",
+			name = "nqs-provide-buffers",
 			setting_type = "runtime-global",
 			default_value = true,
 			order = "aahb"
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-requester-chests",
+			name = "nqs-number-of-requester-chests",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 100,
@@ -258,7 +258,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-storage-chests",
+			name = "nqs-number-of-storage-chests",
 			setting_type = "runtime-global",
 			default_value = 50,
 			maximum_value = 100,
@@ -267,7 +267,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-armor",
+			name = "nqs-armor",
 			setting_type = "runtime-global",
 			default_value = "None",
 			allowed_values = armorallowed,
@@ -275,14 +275,14 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-equipment-in-backpack",
+			name = "nqs-equipment-in-backpack",
 			setting_type = "runtime-global",
 			default_value = false,
 			order = "aiab"
 		},
 		{
 			type = "string-setting",
-			name = "uqs-equipment-power",
+			name = "nqs-equipment-power",
 			setting_type = "runtime-global",
 			default_value = "Solar panels",
 			allowed_values = powerallowed,
@@ -290,7 +290,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-panels-reactors",
+			name = "nqs-number-of-panels-reactors",
 			setting_type = "runtime-global",
 			default_value = 1,
 			maximum_value = 50,
@@ -299,7 +299,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-equipment-battery",
+			name = "nqs-equipment-battery",
 			setting_type = "runtime-global",
 			default_value = "Battery",
 			allowed_values = batteriesallowed,
@@ -307,7 +307,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-batteries",
+			name = "nqs-number-of-batteries",
 			setting_type = "runtime-global",
 			default_value = 1,
 			maximum_value = 10,
@@ -316,14 +316,14 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-equipment-night-vision",
+			name = "nqs-equipment-night-vision",
 			setting_type = "runtime-global",
 			default_value = false,
 			order = "aid"
 		},
 		{
 			type = "string-setting",
-			name = "uqs-equipment-personal-roboport",
+			name = "nqs-equipment-personal-roboport",
 			setting_type = "runtime-global",
 			default_value = "Roboport",
 			allowed_values = {"Roboport", "Roboport MK2"},
@@ -331,7 +331,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-personal-roboports",
+			name = "nqs-number-of-personal-roboports",
 			setting_type = "runtime-global",
 			default_value = 2,
 			maximum_value = 10,
@@ -340,14 +340,14 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-supply-robots",
+			name = "nqs-supply-robots",
 			setting_type = "runtime-global",
 			default_value = true,
 			order = "aiec"
 		},
 		{
 			type = "string-setting",
-			name = "uqs-equipment-exoskeletons",
+			name = "nqs-equipment-exoskeletons",
 			setting_type = "runtime-global",
 			default_value = "Exoskeleton",
 			allowed_values = exoskeletonsallowed,
@@ -355,7 +355,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-exoskeletons",
+			name = "nqs-number-of-exoskeletons",
 			setting_type = "runtime-global",
 			default_value = 0,
 			maximum_value = 10,
@@ -364,7 +364,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-equipment-energy-shield",
+			name = "nqs-equipment-energy-shield",
 			setting_type = "runtime-global",
 			default_value = "Energy Shield",
 			allowed_values = shieldsallowed,
@@ -372,7 +372,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-energy-shields",
+			name = "nqs-number-of-energy-shields",
 			setting_type = "runtime-global",
 			default_value = 0,
 			maximum_value = 10,
@@ -381,21 +381,21 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-equipment-belt-immunity",
+			name = "nqs-equipment-belt-immunity",
 			setting_type = "runtime-global",
 			default_value = false,
 			order = "aih"
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-equipment-discharge-defense",
+			name = "nqs-equipment-discharge-defense",
 			setting_type = "runtime-global",
 			default_value = false,
 			order = "aii"
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-personal-laser-defense",
+			name = "nqs-number-of-personal-laser-defense",
 			setting_type = "runtime-global",
 			default_value = 0,
 			maximum_value = 10,
@@ -404,21 +404,21 @@ data:extend(
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-equipment-solar-fill",
+			name = "nqs-equipment-solar-fill",
 			setting_type = "runtime-global",
 			default_value = true,
 			order = "aik"
 		},
 		{
 			type = "bool-setting",
-			name = "uqs-equipment-gun-provide",
+			name = "nqs-equipment-gun-provide",
 			setting_type = "runtime-global",
 			default_value = true,
 			order = "aila"
 		},
 		{
 			type = "string-setting",
-			name = "uqs-equipment-gun",
+			name = "nqs-equipment-gun",
 			setting_type = "runtime-global",
 			default_value = "Pistol",
 			allowed_values = gunsallowed,
@@ -426,7 +426,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-equipment-ammo",
+			name = "nqs-equipment-ammo",
 			setting_type = "runtime-global",
 			default_value = "Firearm magazine",
 			allowed_values = ammoallowed,
@@ -434,7 +434,7 @@ data:extend(
 		},
 		{
 			type = "int-setting",
-			name = "uqs-number-of-ammo",
+			name = "nqs-number-of-ammo",
 			setting_type = "runtime-global",
 			default_value = 10,
 			maximum_value = 1000,
@@ -443,7 +443,7 @@ data:extend(
 		},
 		{
 			type = "string-setting",
-			name = "uqs-custom-entities",
+			name = "nqs-custom-entities",
 			setting_type = "runtime-global",
 			default_value = "iron-plate:1 copper-plate:1",
 			allow_blank = true,

@@ -1,8 +1,8 @@
 table.insert(
-	NQS_SetupFuncs,
-	function()
-		if game.active_mods["electricboiler"] then
-			NQS_State.electricboiler = true
-		end
-	end
+  nqs.setupFuncs,
+  function()
+    if game.active_mods["electricboiler"] then
+      nqs.electricboiler = true
+    end
+  end
 )

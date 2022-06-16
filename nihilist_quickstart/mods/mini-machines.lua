@@ -1,8 +1,8 @@
 table.insert(
-	NQS_SetupFuncs,
-	function()
-		if game.active_mods["mini-machines"] then
-			NQS_State.minimachines = true
-		end
-	end
+  nqs.setupFuncs,
+  function()
+    if game.active_mods["mini-machines"] then
+      nqs.minimachines = true
+    end
+  end
 )
