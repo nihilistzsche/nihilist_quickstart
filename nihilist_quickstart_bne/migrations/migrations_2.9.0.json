@@ -1,0 +1,51 @@
+{
+	"mod-setting": [
+		["uqs-number-of-ammo", "nqs-number-of-ammo"],
+		["uqs-number-of-batteries", "nqs-number-of-batteries"],
+		[
+			"uqs-number-of-construction-robots",
+			"nqs-number-of-construction-robots"
+		],
+		["uqs-number-of-energy-shields", "nqs-number-of-energy-shields"],
+		["uqs-number-of-exoskeletons", "nqs-number-of-exoskeletons"],
+		["uqs-number-of-logistic-robots", "nqs-number-of-logistic-robots"],
+		["uqs-number-of-panels-reactors", "nqs-number-of-panels-reactors"],
+		[
+			"uqs-number-of-personal-laser-defense",
+			"nqs-number-of-personal-laser-defense"
+		],
+		[
+			"uqs-number-of-personal-roboports",
+			"nqs-number-of-personal-roboports"
+		],
+		["uqs-number-of-provider-chests", "nqs-number-of-provider-chests"],
+		["uqs-number-of-requester-chests", "nqs-number-of-requester-chests"],
+		["uqs-number-of-roboports", "nqs-number-of-roboports"],
+		["uqs-number-of-storage-chests", "nqs-number-of-storage-chests"],
+		["uqs-number-of-uranium-fuel", "nqs-number-of-uranium-fuel"],
+		["uqs-type-of-roboports", "nqs-type-of-roboports"],
+		["uqs-armor", "nqs-armor"],
+		["uqs-custom-entities", "nqs-custom-entities"],
+		["uqs-equipment-in-backpack", "nqs-equipment-in-backpack"],
+		["uqs-equipment-ammo", "nqs-equipment-ammo"],
+		["uqs-equipment-battery", "nqs-equipment-battery"],
+		["uqs-equipment-belt-immunity", "nqs-equipment-belt-immunity"],
+		["uqs-equipment-discharge-defense", "nqs-equipment-discharge-defense"],
+		["uqs-equipment-energy-shield", "nqs-equipment-energy-shield"],
+		["uqs-equipment-exoskeletons", "nqs-equipment-exoskeletons"],
+		["uqs-equipment-gun", "nqs-equipment-gun"],
+		["uqs-equipment-gun-provide", "nqs-equipment-gun-provide"],
+		["uqs-equipment-night-vision", "nqs-equipment-night-vision"],
+		["uqs-equipment-personal-roboport", "nqs-equipment-personal-roboport"],
+		["uqs-equipment-power", "nqs-equipment-power"],
+		["uqs-equipment-solar-fill", "nqs-equipment-solar-fill"],
+		["uqs-oxygen-gas-mask", "nqs-oxygen-gas-mask"],
+		["uqs-provide-active-providers", "nqs-provide-active-providers"],
+		["uqs-provide-buffers", "nqs-provide-buffers"],
+		["uqs-provide-chests-alone", "nqs-provide-chests-alone"],
+		["uqs-provide-robots-alone", "nqs-provide-robots-alone"],
+		["uqs-robots-mod", "nqs-robots-mod"],
+		["uqs-supply-robots", "nqs-supply-robots"]
+	]
+}
+

@@ -1,10 +1,7 @@
-table.insert(
-  nqs.setupFuncs,
-  function()
+table.insert(nqs.setupFuncs, function()
     if game.active_mods["Krastorio2"] then
-      nqs.krastorio2 = true
-      nqs.crushertype = "kr-crusher"
-      nqs.crushernumber = settings.global["nqs-number-of-crushers"].value
+        nqs.krastorio2 = true
+        nqs.crushertype = "kr-crusher"
+        nqs.crushernumber = settings.global["nqs-number-of-crushers"].value
     end
-  end
-)
+end)

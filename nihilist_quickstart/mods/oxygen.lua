@@ -1,10 +1,7 @@
-table.insert(
-  nqs.setupFuncs,
-  function()
+table.insert(nqs.setupFuncs, function()
     if game.active_mods["Oxygen_Patched"] then
-      nqs.oxygenmod = true
-      nqs.oxygenbottlesnumber = settings.global["nqs-number-of-oxygen-bottles"].value
-      nqs.oxygenbottlestype = "oxygen-bottle"
+        nqs.oxygenmod = true
+        nqs.oxygenbottlesnumber = settings.global["nqs-number-of-oxygen-bottles"].value
+        nqs.oxygenbottlestype = "oxygen-bottle"
     end
-  end
-)
+end)
