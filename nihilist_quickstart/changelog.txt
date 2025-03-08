@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.3
+Date: 2025-03-07
+  Changes:
+    - Updated for Factorio 2.0, just the API updates for now.  Will add new space age items as
+      available options later.
+---------------------------------------------------------------------------------------------------
 Version: 3.0.2
 Date: 2023-01-15
   Bugfixes:

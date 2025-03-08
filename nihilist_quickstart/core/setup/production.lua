@@ -1,7 +1,7 @@
 table.insert(nqs.setupFuncs, function()
     -- Check settings for mining drills
     local minernumber
-    local minernumber2 = 0
+    local minernumber2
     local minertype, minertype2
     if settings.global["nqs-miner-type"].value == "Burner mining drills" then
         minertype = "burner-mining-drill"
@@ -56,15 +56,15 @@ table.insert(nqs.setupFuncs, function()
     nqs.poletype = "small-electric-pole"
     nqs.polenumber = settings.global["nqs-number-of-poles"].value
 
-    if AAII and settings.global["nqs-aai-power-poles"] then nqs.poletype = "small-iron-electric-pole" end
+    if nqs.AAII and settings.global["nqs-aai-power-poles"] then nqs.poletype = "small-iron-electric-pole" end
 
     -- Check settings for furnaces
     nqs.furnacenumber = settings.global["nqs-number-of-furnaces"].value
 
     local furnacetype
-    if minimachines and settings.global["nqs-mini-furnaces"].value then
+    if nqs.minimachines and settings.global["nqs-mini-furnaces"].value then
         furnacetype = "mini-furnace-1"
-    elseif electricfurnaces and settings.global["nqs-electric-furnaces"].value then
+    elseif nqs.electricfurnaces and settings.global["nqs-electric-furnaces"].value then
         furnacetype = "electric-stone-furnace"
     else
         furnacetype = "stone-furnace"

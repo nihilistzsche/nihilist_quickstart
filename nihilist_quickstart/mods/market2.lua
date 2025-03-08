@@ -1,5 +1,5 @@
 table.insert(nqs.setupFuncs, function()
-    if game.active_mods["market2"] then
+    if script.active_mods["market2"] then
         nqs.marketmod = true
         nqs.marketchestsnumber = settings.global["nqs-number-of-market-chests"].value
         nqs.marketcheststype = "marketitem-selling-chest"

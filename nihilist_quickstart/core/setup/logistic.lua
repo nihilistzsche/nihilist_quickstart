@@ -33,25 +33,25 @@ table.insert(nqs.setupFuncs, function()
     nqs.splitternumber = settings.global["nqs-number-of-splitters"].value
 
     -- Check settings for loaders
-    local loadernumber, loadertype = 0, nil
+    local loadernumber, loadertype
     if nqs.loaders then
         if settings.global["nqs-loader-type"].value == "Deadlock's Loaders" then
             loadernumber = settings.global["nqs-number-of-loaders"].value
-            if bobbasicbelts and settings.global["nqs-use-basic-loaders"].value then
+            if nqs.bobbasicbelts and settings.global["nqs-use-basic-loaders"].value then
                 loadertype = "basic-transport-belt-loader"
             else
                 loadertype = "transport-belt-loader"
             end
         elseif settings.global["nqs-loader-type"].value == "Vanilla Loaders HD" then
             loadernumber = settings.global["nqs-number-of-loaders"].value
-            if bobbasicbelts and settings.global["nqs-use-basic-loaders"].value then
+            if nqs.bobbasicbelts and settings.global["nqs-use-basic-loaders"].value then
                 loadertype = "basic-loader"
             else
                 loadertype = "loader"
             end
         elseif settings.global["nqs-loader-type"].value == "Miniloaders" then
             loadernumber = settings.global["nqs-number-of-loaders"].value
-            if bobbasicbelts and settings.global["nqs-use-basic-loaders"].value then
+            if nqs.bobbasicbelts and settings.global["nqs-use-basic-loaders"].value then
                 loadertype = "miniloader"
             else
                 loadertype = "loader"

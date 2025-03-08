@@ -57,7 +57,7 @@ table.insert(nqs.setupFuncs, function()
             generators = math.floor(settings.global["nqs-desired-power-output"].value / 1.8 + 0.99)
             table.insert(nqs.power_setup_info, { nqs.boilertype, generators })
             table.insert(nqs.power_setup_info, { "steam-engine", generators * 2 })
-            if omnifluid then
+            if nqs.omnifluid then
                 table.insert(nqs.power_setup_info, { "burner-omnitractor", math.floor(generators / 5 + 0.99) })
             else
                 table.insert(nqs.power_setup_info, { "offshore-pump", math.floor(generators / 20 + 0.99) })

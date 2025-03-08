@@ -1,5 +1,5 @@
 table.insert(nqs.setupFuncs, function()
-    if game.active_mods["angelsrefining"] then
+    if script.active_mods["angelsrefining"] then
         nqs.Angelsrefining = true
         if
             settings.global["nqs-number-of-crushers"].value > 0

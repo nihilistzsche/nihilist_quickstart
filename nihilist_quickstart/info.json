@@ -1,14 +1,14 @@
 {
 	"name": "nihilist_quickstart",
-	"version": "3.0.2",
-	"factorio_version": "1.1",
+	"version": "3.0.3",
+	"factorio_version": "2.0",
 	"title": "Nihilist Quickstart Belts and Machines",
 	"author": "nihilistzsche",
 	"contact": "nihilistzsche@gmail.com",
 	"homepage": "",
 	"description": "Update/Rewrite of Caxx's Universal Quickstart Belts & Machines for Factorio 1.0+.\r\n\r\n",
 	"dependencies": [
-		"base >= 1.0",
+		"base >= 2.0.32",
 		"? aai-industry",
 		"? apm_power",
 		"? angelsrefining",

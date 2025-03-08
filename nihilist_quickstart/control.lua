@@ -1,5 +1,5 @@
--- luacheck: globals global nqs script defines game setting
-nqs = global.nqs or {}
+-- luacheck: globals storage nqs script defines game setting
+nqs = storage.nqs or {}
 nqs.setupFuncs = {}
 
 -- Variables
@@ -51,7 +51,7 @@ local function quickstart(e)
         nqs.initInfo = nqs.initInfo or {}
         nqs.initInfo[e.player_index] = true
         nqs.setupFuncs = nil
-        global.nqs = nqs
+        storage.nqs = nqs
     end
 end
 script.on_event(defines.events.on_player_created, quickstart)

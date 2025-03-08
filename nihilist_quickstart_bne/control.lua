@@ -5,7 +5,7 @@ local function quickstart_bne(e)
     local player = game.players[e.player_index]
     if player.controller_type == defines.controllers.character then
         -- Variables
-        local oxygenmod = game.active_mods["Oxygen_Patched"] ~= nil
+        local oxygenmod = script.active_mods["Oxygen_Patched"] ~= nil
 
         -- Insert in inventory function
         local function inventory(pname, pamount) player.insert({ name = pname, count = pamount }) end
@@ -16,7 +16,7 @@ local function quickstart_bne(e)
             local customnamebase, customnumberbase = string.match(word, "(.+):(%d+)")
             local customname = tostring(customnamebase)
             local customnumber = tonumber(customnumberbase)
-            if game.item_prototypes[customname] and type(customnumber) == "number" and customnumber > 0 then
+            if prototypes.item[customname] and type(customnumber) == "number" and customnumber > 0 then
                 inventory(customname, customnumber)
             else
                 game.print(
@@ -91,10 +91,10 @@ local function quickstart_bne(e)
         local function getarmor()
             -- Define variables
             local robotmult = 0
-            local powertype = 1
-            local batterytype = 1
+            local powertype = ""
+            local batterytype = ""
             local personalroboporttype = 1
-            local energyshieldtype = 1
+            local energyshieldtype = ""
             local beltimmunityplaced = false
             local nightvisionplaced = false
             local inbackpack = false
@@ -178,7 +178,7 @@ local function quickstart_bne(e)
                 robotmult = 10
             elseif settings.global["nqs-equipment-personal-roboport"].value == "Roboport MK2" then
                 personalroboporttype = 2
-                if game.active_mods["bobequipment"] then
+                if script.active_mods["bobequipment"] then
                     robotmult = 15
                 else
                     robotmult = 25
@@ -253,7 +253,7 @@ local function quickstart_bne(e)
                         inventory(conbots, roboports * 10)
                     elseif personalroboporttype == 2 and roboports > 0 then
                         inventory("personal-roboport-mk2-equipment", roboports)
-                        if game.active_mods["bobequipment"] then
+                        if script.active_mods["bobequipment"] then
                             inventory(conbots, roboports * 15)
                         else
                             inventory(conbots, roboports * 25)
@@ -287,7 +287,7 @@ local function quickstart_bne(e)
                             return item and item.valid and item.valid_for_read and item.is_armor and item.grid
                         end
 
-                        local firstInv = player.get_inventory(5)
+                        local firstInv = player.get_inventory(defines.inventory.character_armor)
                         if isInventoryValid(firstInv) then
                             for k = #firstInv, 1, -1 do
                                 local v = firstInv[k]
@@ -607,21 +607,22 @@ local function quickstart_bne(e)
                 if conbotsnumber > 0 then inventory(conbots, conbotsnumber) end
             end
             if givechests then
-                if requesternumber > 0 then inventory("logistic-chest-requester", requesternumber) end
+                if requesternumber > 0 then inventory("requester-chest", requesternumber) end
                 if providernumber > 0 then
                     if settings.global["nqs-provide-active-providers"].value then
-                        inventory("logistic-chest-active-provider", math.floor(providernumber / 2))
-                        inventory("logistic-chest-passive-provider", math.floor(providernumber / 2))
+                        inventory("active-provider-chest", math.floor(providernumber / 2))
+                        inventory("passive-provider-chest", math.floor(providernumber / 2))
                     else
-                        inventory("logistic-chest-passive-provider", providernumber)
+                        inventory("passive-provider-chest", providernumber)
                     end
                 end
                 if storagenumber > 0 then
                     if settings.global["nqs-provide-buffers"].value then
-                        inventory("logistic-chest-buffer", math.floor(storagenumber / 2))
-                        inventory("logistic-chest-storage", math.floor(storagenumber / 2))
+                   
+                        inventory("buffer-chest", math.floor(storagenumber / 2))
+                        inventory("storage-chest", math.floor(storagenumber / 2))
                     else
-                        inventory("logistic-chest-storage", storagenumber)
+                        inventory("storage-chest", storagenumber)
                     end
                 end
             end
