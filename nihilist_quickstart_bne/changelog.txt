@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.0
+Date: 2025-03-10
+  Changes:
+    - Major refactoring, though functionality mostly remains the same
+    - Added personal fission reactor to the armor power type options.
+    - Personal fusion reactor is now Space Age exclusive, so it is only available when Space
+      Age is enabled.
+---------------------------------------------------------------------------------------------------
 Version: 2.9.1
 Date: 2025-03-07
   Changes:

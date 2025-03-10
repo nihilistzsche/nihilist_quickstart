@@ -21,17 +21,20 @@ table.insert(armorallowed, "None")
 table.insert(armorallowed, "Modular Armor")
 table.insert(armorallowed, "Power Armor")
 table.insert(armorallowed, "Power Armor MK2")
+if mods["space-age"] then table.insert(armorallowed, "Mech Armor") end
 
 table.insert(batteriesallowed, "None")
 table.insert(batteriesallowed, "Battery")
 table.insert(batteriesallowed, "Battery MK2")
+if mods["space-age"] then table.insert(batteriesallowed, "Battery MK3") end
 
 table.insert(shieldsallowed, "None")
 table.insert(shieldsallowed, "Energy Shield")
 table.insert(shieldsallowed, "Energy Shield MK2")
 
 table.insert(powerallowed, "Solar panels")
-table.insert(powerallowed, "Fusion reactors")
+table.insert(powerallowed, "Portable fission reactors")
+if mods["space-age"] then table.insert(powerallowed, "Portable fusion reactors") end
 
 table.insert(exoskeletonsallowed, "None")
 table.insert(exoskeletonsallowed, "Exoskeleton")
