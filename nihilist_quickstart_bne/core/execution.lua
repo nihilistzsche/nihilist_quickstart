@@ -268,6 +268,10 @@ return function(player)
             player.insert({ name = nqs_bne.conbots, count = roboportsinserted * nqs_bne.personalrobotmult })
         end
 
+        if nqs_bne.roboporttype and nqs_bne.roboportsnumber > 0 then
+            player.insert({ name = nqs_bne.roboporttype, count = nqs_bne.roboportsnumber })
+        end
+
         if nqs_bne.giverobots then
             if nqs_bne.logbotsnumber > 0 then
                 player.insert({ name = nqs_bne.logbots, count = nqs_bne.logbotsnumber })
@@ -303,4 +307,8 @@ return function(player)
     if nqs_bne.guntype then player.insert({ name = nqs_bne.guntype, count = 1 }) end
 
     if nqs_bne.ammotype then player.insert({ name = nqs_bne.ammotype, count = nqs_bne.ammonumber }) end
+
+    for _, custom_info in ipairs(nqs_bne.custom_insertion_info) do
+        player.insert(custom_info)
+    end
 end
