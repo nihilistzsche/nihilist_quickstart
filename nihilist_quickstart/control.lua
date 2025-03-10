@@ -39,15 +39,8 @@ local function quickstart(e)
             func()
         end
 
-        execute()
+        execute(player)
 
-        for _, info in pairs(nqs.insertion_info) do
-            if info.count > 0 then player.insert(info) end
-            -- Hack to provide the first stacking technology if beltboxes are added so they are useable
-            if string.find(info.name, "beltbox") then
-                player.force.technologies["deadlock-stacking-1"].researched = true
-            end
-        end
         nqs.initInfo = nqs.initInfo or {}
         nqs.initInfo[e.player_index] = true
         nqs.setupFuncs = nil

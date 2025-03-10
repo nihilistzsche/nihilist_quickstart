@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.4
+Date: 2025-03-10
+  Changes:
+    - Refactored how it works behind the scenes a bit to sync it with BNE, I like that pattern
+      better.
+---------------------------------------------------------------------------------------------------
 Version: 3.0.3
 Date: 2025-03-07
   Changes:
@@ -9,8 +15,8 @@ Version: 3.0.2
 Date: 2023-01-15
   Bugfixes:
     - Will provide beltboxes again, and if beltboxes are provided automatically research "stacking-1" so you can use them.
-	- AAII Steam Power added as a power option when using AAI Industries again and will provide you with a burner turbine
-	  in addition to the steam turbines so you can prime the off-shore pump.
+    - AAII Steam Power added as a power option when using AAI Industries again and will provide you with a burner turbine
+      in addition to the steam turbines so you can prime the off-shore pump.
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.1
 Date: 2022-06-16
