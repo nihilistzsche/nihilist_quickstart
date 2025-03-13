@@ -19,6 +19,10 @@ table.insert(nqs.setupFuncs, function()
         belttype = "basic-transport-belt"
         undergroundtype = "basic-underground-belt"
         splittertype = "basic-splitter"
+    elseif nqs.woodLogistics and settings.global["nqs-wood-belts"].value then
+        belttype = "wood-transport-belt"
+        undergroundtype = "wood-underground-belt"
+        splittertype = "wood-splitter"
     else
         belttype = "transport-belt"
         undergroundtype = "underground-belt"
@@ -56,6 +60,13 @@ table.insert(nqs.setupFuncs, function()
             else
                 loadertype = "loader"
             end
+        elseif settings.global["nqs-loader-type"].value == "AAI Loaders" then
+            if nqs.woodLogistics and settings.global["nqs-wood-belts"] then
+                loadertype = "aai-wood-loader"
+            else
+                loadertype = "aai-loader"
+            end
+            loadernumber = settings.global["nqs-number-of-loaders"].value
         elseif settings.global["nqs-loader-type"].value == "None" then
             loadernumber = 0
         end
@@ -90,4 +101,11 @@ table.insert(nqs.setupFuncs, function()
     nqs.pipeundergroundnumber = settings.global["nqs-number-of-pipe-undergrounds"].value
 
     nqs.chestnumber = settings.global["nqs-number-of-chests"].value
+
+    nqs.linkedbeltnumber = settings.global["nqs-number-of-linked-belts"].value
+    if nqs.linkedbeltnumber and nqs.linkedbeltnumber > 0 then
+        nqs.linkedbelttype = nqs.bobbasicbelts and "linked-basic-underground-belt"
+            or nqs.woodLogistics and "linked-wood-underground-belt"
+            or "linked-belt"
+    end
 end)

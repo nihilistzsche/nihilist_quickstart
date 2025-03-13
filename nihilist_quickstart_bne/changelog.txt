@@ -1,9 +1,17 @@
 ---------------------------------------------------------------------------------------------------
-Version: 3.0.1
+Version: 3.0.3
+Date: 2025-03-13
+  Bugfixes:
+    - Fixed an error that occurs if you select Power Armor MK2 as the starting armor.
+---------------------------------------------------------------------------------------------------
+Version: 3.0.2
 Date: 2025-03-10
-  Bugfix:
+  Bugfixes:
     - Roboports were not being added.
     - Custom items were not being added.
+    - Bots and chests were being added despite roboports not being added and "give robots anyway"
+      and/or "give chests anyway" were unchecked.
+    - Linked belts will now respect the "bobs basic belts" or "wood logistics" options.
 ---------------------------------------------------------------------------------------------------
 Version: 3.0.0
 Date: 2025-03-10
@@ -22,16 +30,15 @@ Date: 2025-03-07
 ---------------------------------------------------------------------------------------------------
 Version: 2.9.0
 Date: 2023-01-15
-  Misc:
+  Changes:
     - Added support for 5dim roboports and bots all the way up to level 10.
 ---------------------------------------------------------------------------------------------------
 Version: 2.0.1
 Date: 2021-07-31
-  Misc:
+  Changes:
     - Bumping the version number as I've run the code now through luacheck
       and started optimizing, so marking it clearly different from its
       predecessor.
-  Changes:
     - Fixed so that it can work again when no cutscene is present, such
       as in a scenario or when the crash site is disabled.
 ---------------------------------------------------------------------------------------------------
@@ -47,7 +54,7 @@ Date: 2020-03-15
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.2
 Date: 2020-02-21
-  Bufix:
+  Bugfixes:
     - Should not be crashing when starting a new Sandbox-mode game.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.1
@@ -62,19 +69,19 @@ Date: 2020-01-30
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.3
 Date: 2020-01-30
-  Bugfix:
+  Bugfixes:
     - Fix crash when selecting "None" as type for some equipments
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.2
 Date: 2020-01-27
-  Bugfix:
+  Bugfixes:
     - Custom entities is now working again
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2020-01-21
-  Base game support:
+  Changes:
     - Support for Factorio 0.18
-  Bugfix:
+  Bugfixes:
     - Construction robots are now also given when equipment is placed in backpack.
     - It is now possible to clear the settings for custom items
   Features:
@@ -87,7 +94,7 @@ Date: 2020-01-01
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 2019-06-26
-  Bugfix:
+  Bugfixes:
     - Fixed typo which hindered the roboports and robots from spawning
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.1
@@ -104,34 +111,34 @@ Date: 2019-05-21
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 2019-05-21
-  Bugfix:
+  Bugfixes:
     - Minor bug where 0 roboports couldn't be set in settings.
   Changes:
     - Added possibilty in settings to start without roboports but with robots and chests
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2019-05-17
-  Bugfix:
+  Bugfixes:
     - Start with no armor works again.
     - Player is now given correct amount of construction bots
     - Player is also given correct amount of bots when using Bob's equipment
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2019-05-16
-  Bugfix:
+  Bugfixes:
     - Condition error for providing roboports
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2019-05-16
-  Bugfix:
+  Bugfixes:
     - Compatibility errors with Universal Quickstart Belts and Machines
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2019-05-16
-  Bugfix:
+  Bugfixes:
     - Minor type lead to crash at loading map
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2019-05-16
-  Update:
+  Changes:
     - The first release.

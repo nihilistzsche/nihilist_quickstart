@@ -176,13 +176,6 @@ data:extend({
         order = "afc",
     },
     {
-        type = "bool-setting",
-        name = "nqs-electric-inserters",
-        setting_type = "runtime-global",
-        default_value = false,
-        order = "aff",
-    },
-    {
         type = "int-setting",
         name = "nqs-number-of-poles",
         setting_type = "runtime-global",
@@ -281,79 +274,15 @@ data:extend({
     },
 })
 
-if mods["deadlock-beltboxes-loaders"] then
-    table.insert(loaders, "Deadlock's Loaders")
-    data:extend({
-        {
-            type = "int-setting",
-            name = "nqs-number-of-beltboxes",
-            setting_type = "runtime-global",
-            default_value = 50,
-            maximum_value = 1000,
-            minimum_value = 0,
-            order = "abed",
-        },
-        {
-            type = "bool-setting",
-            name = "nqs-use-basic-loaders",
-            setting_type = "runtime-global",
-            default_value = true,
-            order = "abeb",
-        },
-        {
-            type = "string-setting",
-            name = "nqs-loader-type",
-            setting_type = "runtime-global",
-            default_value = "None",
-            allowed_values = loaders,
-            order = "abea",
-        },
-        {
-            type = "int-setting",
-            name = "nqs-number-of-loaders",
-            setting_type = "runtime-global",
-            default_value = 50,
-            maximum_value = 1000,
-            minimum_value = 0,
-            order = "abec",
-        },
-    })
-end
+if mods["deadlock-beltboxes-loaders"] then table.insert(loaders, "Deadlock's Loaders") end
 
-if mods["vanilla-loaders-hd"] then
-    table.insert(loaders, "Vanilla Loaders HD")
+if mods["vanilla-loaders-hd"] then table.insert(loaders, "Vanilla Loaders HD") end
 
-    data:extend({
-        {
-            type = "bool-setting",
-            name = "nqs-use-basic-loaders",
-            setting_type = "runtime-global",
-            default_value = true,
-            order = "abeb",
-        },
-        {
-            type = "string-setting",
-            name = "nqs-loader-type",
-            setting_type = "runtime-global",
-            default_value = "None",
-            allowed_values = loaders,
-            order = "abea",
-        },
-        {
-            type = "int-setting",
-            name = "nqs-number-of-loaders",
-            setting_type = "runtime-global",
-            default_value = 50,
-            maximum_value = 1000,
-            minimum_value = 0,
-            order = "abec",
-        },
-    })
-end
+if mods["miniloader"] then table.insert(loaders, "Miniloaders") end
 
-if mods["miniloader"] then
-    table.insert(loaders, "Miniloaders")
+if mods["aai-loaders"] then table.insert(loaders, "AAI Loaders") end
 
+if #loaders > 1 then
     data:extend({
         {
             type = "bool-setting",
@@ -443,9 +372,6 @@ if mods["boblogistics"] then
             order = "aba",
         },
     })
-end
-
-if mods["boblogistics"] then
     data:extend({
         {
             type = "bool-setting",
@@ -453,6 +379,18 @@ if mods["boblogistics"] then
             setting_type = "runtime-global",
             default_value = true,
             order = "aca",
+        },
+    })
+end
+
+if mods["wood-logistics"] then
+    data:extend({
+        {
+            type = "bool-setting",
+            name = "nqs-wood-belts",
+            setting_type = "runtime-global",
+            default_value = true,
+            order = "aba",
         },
     })
 end

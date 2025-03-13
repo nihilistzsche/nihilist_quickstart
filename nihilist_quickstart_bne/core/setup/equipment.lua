@@ -12,7 +12,7 @@ table.insert(nqs_bne.setupFuncs, function(player)
     elseif settings.global["nqs-armor"].value == "Power Armor" then
         armortype = "power-armor"
     elseif settings.global["nqs-armor"].value == "Power Armor MK2" then
-        armortype("power-armor-mk2")
+        armortype = "power-armor-mk2"
     elseif settings.global["nqs-armor"].value == "Power Armor MK3" then
         armortype = "bob-power-armor-mk3"
     elseif settings.global["nqs-armor"].value == "Power Armor MK4" then

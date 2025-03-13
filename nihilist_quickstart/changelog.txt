@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.0.5
+Date: 2025-03-10
+  Changes:
+    - Added support for AAI Loaders, if the startup setting for AAI Loaders operation mode is
+      lubricated and loaders are provided, you will be provided with 50 lubricant barrels, worth
+      2500 lubricant, so rush to oil as quick as you can.
+    - Added support for Wooden Logistics, similar to bobslogistics and basicbelts, if Wooden
+      Logistics is enabled, you can opt to receive wooden belts instead of yellow belts.
+---------------------------------------------------------------------------------------------------
 Version: 3.0.4
 Date: 2025-03-10
   Changes:

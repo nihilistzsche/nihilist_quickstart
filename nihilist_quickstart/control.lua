@@ -23,6 +23,8 @@ require("mods/mini-machines")
 require("mods/electric_furnaces")
 require("mods/krastorio2")
 require("mods/linked_belts")
+require("mods/aai-loaders")
+require("mods/wood-logistics")
 
 for _, setup_step in pairs({ "logistic", "production", "power", "military", "misc" }) do
     require("core/setup/" .. setup_step)

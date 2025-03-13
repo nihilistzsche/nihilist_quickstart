@@ -19,6 +19,9 @@ return function(player)
     -- Inserting loaders
     if nqs.loadernumber and nqs.loadernumber > 0 then
         player.insert({ name = nqs.loadertype, count = nqs.loadernumber })
+        if nqs.loadertype == "aai-loader" and settings.startup["aai-loaders-mode"].value == "lubricated" then
+            player.insert({ name = "lubricant-barrel", count = 50 })
+        end
     end
 
     -- Inserting beltboxes
@@ -65,7 +68,7 @@ return function(player)
     end
 
     if nqs.linkedbeltnumber and nqs.linkedbeltnumber > 0 then
-        player.insert({ name = "linked-belt", count = nqs.linkedbeltnumber })
+        player.insert({ name = nqs.linkedbelttype, count = nqs.linkedbeltnumber })
     end
 
     -- Inserting Market stuff

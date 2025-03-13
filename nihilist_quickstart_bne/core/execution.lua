@@ -268,20 +268,22 @@ return function(player)
             player.insert({ name = nqs_bne.conbots, count = roboportsinserted * nqs_bne.personalrobotmult })
         end
 
+        local gaveroboports = false
         if nqs_bne.roboporttype and nqs_bne.roboportsnumber > 0 then
+            gaveroboports = true
             player.insert({ name = nqs_bne.roboporttype, count = nqs_bne.roboportsnumber })
         end
 
-        if nqs_bne.giverobots then
-            if nqs_bne.logbotsnumber > 0 then
+        if gaveroboports or nqs_bne.giverobotsanyway then
+            if nqs_bne.logbots and nqs_bne.logbotsnumber > 0 then
                 player.insert({ name = nqs_bne.logbots, count = nqs_bne.logbotsnumber })
             end
-            if nqs_bne.conbotsnumber > 0 then
+            if nqs_bne.conbots and nqs_bne.conbotsnumber > 0 then
                 player.insert({ name = nqs_bne.conbots, count = nqs_bne.conbotsnumber })
             end
         end
 
-        if nqs_bne.givechests then
+        if gaveroboports or nqs_bne.givechestsanyway then
             if nqs_bne.requesternumber > 0 then
                 player.insert({ name = "requester-chest", count = nqs_bne.requesternumber })
             end

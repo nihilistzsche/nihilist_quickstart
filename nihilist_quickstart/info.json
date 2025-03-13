@@ -1,6 +1,6 @@
 {
 	"name": "nihilist_quickstart",
-	"version": "3.0.4",
+	"version": "3.0.5",
 	"factorio_version": "2.0",
 	"title": "Nihilist Quickstart Belts and Machines",
 	"author": "nihilistzsche",
@@ -10,6 +10,7 @@
 	"dependencies": [
 		"base >= 2.0.32",
 		"? aai-industry",
+		"? aai-loaders",
 		"? apm_power",
 		"? angelsrefining",
 		"? angelssmelting",
@@ -34,6 +35,7 @@
 		"? nihilist_quickstart_bne",
 		"? Krastorio2",
 		"? Linked Belts",
+		"? wood-logistics",
 		"!universal_quickstart"
 	]
 }

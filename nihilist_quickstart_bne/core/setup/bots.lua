@@ -26,7 +26,7 @@ table.insert(nqs_bne.setupFuncs, function()
         local num = settings.global["nqs-robots-mod"].value:sub(-2)
         conbots = "5d-construction-robot-" .. num
         logbots = "5d-logistic-robot-" .. num
-    else
+    elseif settings.global["nqs-robots-mod"].value ~= "None" then
         conbots = "construction-robot"
         logbots = "logistic-robot"
     end
@@ -52,7 +52,6 @@ table.insert(nqs_bne.setupFuncs, function()
         roboporttype = "5d-roboport-" .. num
     elseif settings.global["nqs-type-of-roboports"].value == "None" then
     end
-    nqs_bne.roboporttype = roboporttype
     local roboportsnumber = settings.global["nqs-number-of-roboports"].value
     local logbotsnumber = settings.global["nqs-number-of-logistic-robots"].value
     local conbotsnumber = settings.global["nqs-number-of-construction-robots"].value
@@ -60,6 +59,7 @@ table.insert(nqs_bne.setupFuncs, function()
     local providernumber = settings.global["nqs-number-of-provider-chests"].value
     local storagenumber = settings.global["nqs-number-of-storage-chests"].value
 
+    nqs_bne.roboporttype = roboporttype
     nqs_bne.roboportsnumber = roboportsnumber
     nqs_bne.logbotsnumber = logbotsnumber
     nqs_bne.conbotsnumber = conbotsnumber
@@ -67,19 +67,6 @@ table.insert(nqs_bne.setupFuncs, function()
     nqs_bne.providernumber = providernumber
     nqs_bne.storagenumber = storagenumber
 
-    local giverobots, givechests
-    if roboportsnumber > 0 then
-        if settings.global["nqs-robots-mod"].value == "None" then
-            giverobots = false
-        else
-            giverobots = true
-        end
-        givechests = true
-    else
-        giverobots = settings.global["nqs-provide-robots-alone"].value
-        givechests = settings.global["nqs-provide-chests-alone"].value
-    end
-
-    nqs_bne.giverobots = giverobots
-    nqs_bne.givechests = givechests
+    nqs_bne.giverobotsanyway = settings.global["nqs-provide-robots-alone"].value
+    nqs_bne.givechestsanyway = settings.global["nqs-provide-chests-alone"].value
 end)
